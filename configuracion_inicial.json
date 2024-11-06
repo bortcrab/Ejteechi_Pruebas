@@ -1,0 +1,188 @@
+// Paso 1: Crear una base de datos llamada "ejteechidb".
+
+// Paso 2: Ejecutar todo el script completo.
+db.usuarios.insertOne(
+    {
+        "nombres": "Administrador",
+        "apellidoPaterno": "",
+        "apellidoMaterno": "",
+        "correo": "+QJFW+IxenFdw6ToB3livA==",
+        "contrasenia": "+QJFW+IxenFdw6ToB3livA==",
+        "curp": "",
+        "rfc": "",
+        "telefono": "",
+        "tipo": "RRHH"
+    }
+)
+
+db.mapas.insertOne(
+    {
+        "posicionDefault" : [27.4845523,-109.9237108],
+        "lineas" : [
+            {
+                // LÍNEA 1
+                "numero" : 1,
+                "paradas" : [
+                    [27.48270, -109.95938],
+                    [27.48633, -109.96896],
+                    [27.48408, -109.98187],
+                    [27.48571, -109.98238],
+                    [27.48571, -109.98427],
+                    [27.48918, -109.98984],
+                    [27.4892, -109.98836],
+                    [27.4895, -109.98245],
+                    [27.49106, -109.97527],
+                    [27.49133, -109.97369],
+                    [27.49685, -109.9731],
+                    [27.49312, -109.96776],
+                    [27.49432, -109.96284],
+                    [27.49383, -109.95656],
+                    [27.48271, -109.95656]
+                ],
+                "ruta" : {
+                    "puntos" : [
+                        [27.48270, -109.95938],
+                        [27.48627, -109.96098],
+                        [27.48633, -109.96896],
+                        [27.48632, -109.97365],
+                        [27.48273, -109.97374],
+                        [27.48408, -109.98187],
+                        [27.48571, -109.98238],
+                        [27.48571, -109.98427],
+                        [27.48547, -109.99021],
+                        [27.48918, -109.98984],
+                        [27.4892, -109.98836],
+                        [27.4895, -109.98245],
+                        [27.48951, -109.97735],
+                        [27.49106, -109.97527],
+                        [27.49133, -109.97369],
+                        [27.49685, -109.9731],
+                        [27.49312, -109.96776],
+                        [27.4952, -109.96572],
+                        [27.49432, -109.96284],
+                        [27.49383, -109.95656],
+                        [27.48271, -109.95656]
+                    ]
+                }
+            },
+            {
+                // LÍNEA 2
+                "numero" : 2,
+                "paradas" : [
+                    [27.48265, -109.94684],
+                    [27.48278, -109.94365],
+                    [27.48767, -109.94365],
+                    [27.48768, -109.94651],
+                    [27.48648, -109.94649],
+                    [27.48632, -109.94881],
+                    [27.48276, -109.94874]
+                ],
+                "ruta" : {
+                    "puntos" : [
+                        [27.48265, -109.94684],
+                        [27.48278, -109.94365],
+                        [27.48767, -109.94365],
+                        [27.48768, -109.94651],
+                        [27.48648, -109.94649],
+                        [27.48632, -109.94881],
+                        [27.48276, -109.94874]
+                    ]
+                }
+            }
+        ]
+    }
+)
+
+db.camiones.insertMany([
+    {
+        "_id": ObjectId("663d9c45479fbf42e452aac3"),
+        "numeroUnidad": "001",
+        "estadoMotor": "MEDIO",
+        "estadoLimpieza": "MALO",
+        "estadoLlantas": "MEDIO",
+        "estadoLuces": "MEDIO",
+        "fechaUltimoMantenimiento": ISODate("2024-05-10T07:00:00.000+0000"),
+        "nivelPrioridad": "MEDIO"
+    },
+    {
+        "_id": ObjectId("663d9c45479fbf42e452aac4"),
+        "numeroUnidad": "002",
+        "estadoMotor": "MALO",
+        "estadoLimpieza": "BUENO",
+        "estadoLlantas": "MALO",
+        "estadoLuces": "MALO",
+        "fechaUltimoMantenimiento": ISODate("2024-05-10T07:00:00.000+0000"),
+        "nivelPrioridad": "ALTO",
+        "bueno": "medio"
+    },
+    {
+        "_id": ObjectId("663d9c45479fbf42e452aac5"),
+        "numeroUnidad": "003",
+        "estadoMotor": "bueno",
+        "estadoLimpieza": "medio",
+        "estadoLlantas": "medio",
+        "estadoLuces": "bueno",
+        "fechaUltimoMantenimiento": ISODate("2024-05-10T07:00:00.000+0000"),
+        "nivelPrioridad": "BAJO"
+    },
+    {
+        "_id": ObjectId("663d9c45479fbf42e452aac6"),
+        "numeroUnidad": "004",
+        "estadoMotor": "bueno",
+        "estadoLimpieza": "bueno",
+        "estadoLlantas": "bueno",
+        "estadoLuces": "bueno",
+        "fechaUltimoMantenimiento": ISODate("2024-04-01T00:00:00.000+0000"),
+        "nivelPrioridad": "bajo"
+    },
+    {
+        "_id": ObjectId("663d9c45479fbf42e452aac7"),
+        "numeroUnidad": "005",
+        "estadoMotor": "bueno",
+        "estadoLimpieza": "bueno",
+        "estadoLlantas": "bueno",
+        "estadoLuces": "bueno",
+        "fechaUltimoMantenimiento": ISODate("2024-04-01T00:00:00.000+0000"),
+        "nivelPrioridad": "bajo"
+    },
+    {
+        "_id": ObjectId("663d9c45479fbf42e452aac8"),
+        "numeroUnidad": "006",
+        "estadoMotor": "bueno",
+        "estadoLimpieza": "bueno",
+        "estadoLlantas": "bueno",
+        "estadoLuces": "bueno",
+        "fechaUltimoMantenimiento": ISODate("2024-04-01T00:00:00.000+0000"),
+        "nivelPrioridad": "bajo"
+    },
+    {
+        "_id": ObjectId("663d9c45479fbf42e452aac9"),
+        "numeroUnidad": "007",
+        "estadoMotor": "bueno",
+        "estadoLimpieza": "bueno",
+        "estadoLlantas": "bueno",
+        "estadoLuces": "bueno",
+        "fechaUltimoMantenimiento": ISODate("2024-04-01T00:00:00.000+0000"),
+        "nivelPrioridad": "bajo"
+    },
+    {
+        "_id": ObjectId("663d9c45479fbf42e452aaca"),
+        "numeroUnidad": "008",
+        "estadoMotor": "bueno",
+        "estadoLimpieza": "bueno",
+        "estadoLlantas": "bueno",
+        "estadoLuces": "bueno",
+        "fechaUltimoMantenimiento": ISODate("2024-04-01T00:00:00.000+0000"),
+        "nivelPrioridad": "bajo"
+    },
+    {
+        "_id": ObjectId("663d9c45479fbf42e452aacb"),
+        "numeroUnidad": "009",
+        "estadoMotor": "bueno",
+        "estadoLimpieza": "bueno",
+        "estadoLlantas": "bueno",
+        "estadoLuces": "bueno",
+        "fechaUltimoMantenimiento": ISODate("2024-04-01T00:00:00.000+0000"),
+        "nivelPrioridad": "bajo"
+    }
+])

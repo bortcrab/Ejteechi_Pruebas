@@ -1,0 +1,4 @@
+registrarCliente\IRegistrarCliente.class
+registrarCliente\FacadeRegistrarCliente.class
+excepciones\RegistrarClienteException.class
+registrarCliente\CtrlRegistrarCliente.class
