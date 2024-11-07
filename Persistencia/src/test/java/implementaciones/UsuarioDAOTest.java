@@ -31,7 +31,7 @@ public class UsuarioDAOTest {
      * Test of agregarUsuario method, of class UsuarioDAO.
      */
     @Test
-    public void testAgregarUsuario() {
+    public void agregarUsuario_UsuarioCorrecto_ReturnSuccess() {
         // ARRANGE
         Usuario usuario = new Usuario("Diego", "Valenzuela", "Parra", "6441000000", "Prueba@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "cliente");
         Usuario esperado = new Usuario("Diego", "Valenzuela", "Parra", "6441000000", "Prueba@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "cliente");
@@ -47,64 +47,61 @@ public class UsuarioDAOTest {
     }
 
     /**
-     * Test of obtenerUsuarioCorreo method, of class UsuarioDAO.
-     */
-    @Test
-    public void testObtenerUsuarioCorreo() {
-        System.out.println("obtenerUsuarioCorreo");
-        String correo = "";
-        UsuarioDAO instance = new UsuarioDAO();
-        Usuario expResult = null;
-        Usuario result = instance.obtenerUsuarioCorreo(correo);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of obtenerUsuarioCurp method, of class UsuarioDAO.
      */
     @Test
-    public void testObtenerUsuarioCurp() {
-        System.out.println("obtenerUsuarioCurp");
-        String curp = "";
-        UsuarioDAO instance = new UsuarioDAO();
-        Usuario expResult = null;
-        Usuario result = instance.obtenerUsuarioCurp(curp);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void obtenerUsuarioCurp_UsuarioExistente_ReturnSuccess() {
+        // ARRANGE
+        String curp = "VAPD040603HSRLRGA6";
+        Usuario esperado = new Usuario("Diego", "Valenzuela", "Parra", "6441000000", "Prueba@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "cliente");
+        when(usuarioDAO.obtenerUsuarioCurp(curp)).thenReturn(esperado);
+        Usuario resultado;
+        
+        // ACT
+        resultado = usuarioDAO.obtenerUsuarioCurp(curp);
+        
+        // ASSERT
+        assertEquals(esperado, resultado);
+        verify(usuarioDAO, times(1)).obtenerUsuarioCurp(curp);
     }
 
     /**
      * Test of obtenerUsuarioRfc method, of class UsuarioDAO.
      */
     @Test
-    public void testObtenerUsuarioRfc() {
-        System.out.println("obtenerUsuarioRfc");
-        String rfc = "";
-        UsuarioDAO instance = new UsuarioDAO();
-        Usuario expResult = null;
-        Usuario result = instance.obtenerUsuarioRfc(rfc);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void obtenerUsuarioRfc_UsuarioExistente_ReturnSuccess() {
+        // ARRANGE
+        String rfc = "VAPD040603TQ1";
+        Usuario esperado = new Usuario("Diego", "Valenzuela", "Parra", "6441000000", "Prueba@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "cliente");
+        when(usuarioDAO.obtenerUsuarioRfc(rfc)).thenReturn(esperado);
+        Usuario resultado;
+        
+        // ACT
+        resultado = usuarioDAO.obtenerUsuarioRfc(rfc);
+        
+        // ASSERT
+        assertEquals(esperado, resultado);
+        verify(usuarioDAO, times(1)).obtenerUsuarioRfc(rfc);
     }
 
     /**
      * Test of obtenerUsuarioCorreoContra method, of class UsuarioDAO.
      */
     @Test
-    public void testObtenerUsuarioCorreoContra() {
-        System.out.println("obtenerUsuarioCorreoContra");
-        String correo = "";
-        String contrasenia = "";
-        UsuarioDAO instance = new UsuarioDAO();
-        Usuario expResult = null;
-        Usuario result = instance.obtenerUsuarioCorreoContra(correo, contrasenia);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void obtenerUsuarioCorreoContra_UsuarioExistente_ReturnSuccess() {
+        // ARRANGE
+        String correo = "Prueba@gmail.com";
+        String contrasenia = "Prueba123";
+        Usuario esperado = new Usuario("Diego", "Valenzuela", "Parra", "6441000000", "Prueba@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "cliente");
+        when(usuarioDAO.obtenerUsuarioCorreoContra(correo, contrasenia)).thenReturn(esperado);
+        Usuario resultado;
+        
+        // ACT
+        resultado = usuarioDAO.obtenerUsuarioCorreoContra(correo, contrasenia);
+        
+        // ASSERT
+        assertEquals(esperado, resultado);
+        verify(usuarioDAO, times(1)).obtenerUsuarioCorreoContra(correo, contrasenia);
     }
 
 }
