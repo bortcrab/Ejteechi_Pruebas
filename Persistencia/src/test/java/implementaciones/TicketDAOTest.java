@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
-
 package implementaciones;
 
 import colecciones.Respuesta;
@@ -15,30 +14,26 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
- 
+
 /**
  *
  * @author Diego Valenzuela Parra
  */
 public class TicketDAOTest {
 
-     public TicketDAOTest() {
+    private static TicketDAO ticketDAO;
+
+    public TicketDAOTest() {
     }
 
     @BeforeAll
     public static void setUpClass() {
-    }
-
-    @AfterAll
-    public static void tearDownClass() {
-    }
-
-    @BeforeEach
-    public void setUp() {
+        ticketDAO = new TicketDAO();
     }
 
     @AfterEach
     public void tearDown() {
+        ticketDAO.borrarTickets();
     }
 
     /**

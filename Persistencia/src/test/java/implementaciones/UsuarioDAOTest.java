@@ -6,8 +6,6 @@ package implementaciones;
 
 import colecciones.Usuario;
 import excepciones.PersistenciaException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -44,11 +42,7 @@ public class UsuarioDAOTest {
         Usuario resultado;
 
         // ACT
-        try {
-            resultado = usuarioDAO.agregarCliente(cliente);
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
+        resultado = usuarioDAO.agregarCliente(cliente);
 
         // ASSERT
         assertNotNull(resultado);
@@ -62,19 +56,12 @@ public class UsuarioDAOTest {
         // ARRANGE
         Usuario cliente1 = new Usuario("Diego", "Valenzuela", "Parra", "", "Prueba@gmail.com", "Prueba123", "", "", "cliente");
         Usuario cliente2 = new Usuario("José Karim", "Franco", "Valencia", "", "Prueba@gmail.com", "Prueba321", "", "", "cliente");
-        try {
-            usuarioDAO.agregarCliente(cliente1);
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
+        usuarioDAO.agregarCliente(cliente1);
+
         Usuario resultado;
 
         // ACT
-        try {
-            resultado = usuarioDAO.agregarCliente(cliente2);
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
+        resultado = usuarioDAO.agregarCliente(cliente2);
 
         // ASSERT
         assertNotNull(resultado);
@@ -84,11 +71,7 @@ public class UsuarioDAOTest {
     public void obtenerUsuarioCorreo_CorreoExistente_ReturnSuccess() throws Exception {
         // ARRANGE
         Usuario cliente = new Usuario("Diego", "Valenzuela", "Parra", "", "Prueba@gmail.com", "Prueba123", "", "", "cliente");
-        try {
-            usuarioDAO.agregarCliente(cliente);
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
+        usuarioDAO.agregarCliente(cliente);
 
         String correo = "Prueba@gmail.com";
         Usuario resultado;
@@ -117,11 +100,7 @@ public class UsuarioDAOTest {
     public void obtenerUsuarioCorreoContra_ValoresExistentes_ReturnSuccess() throws Exception {
         // ARRANGE
         Usuario cliente = new Usuario("Diego", "Valenzuela", "Parra", "", "Prueba@gmail.com", "Prueba123", "", "", "cliente");
-        try {
-            usuarioDAO.agregarCliente(cliente);
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
+        usuarioDAO.agregarCliente(cliente);
 
         String correo = "Prueba@gmail.com";
         String contra = "Prueba123";
@@ -138,11 +117,7 @@ public class UsuarioDAOTest {
     public void obtenerUsuarioCorreoContra_CorreoInexistente_ReturnSuccess() throws Exception {
         // ARRANGE
         Usuario cliente = new Usuario("Diego", "Valenzuela", "Parra", "", "Prueba@gmail.com", "Prueba123", "", "", "cliente");
-        try {
-            usuarioDAO.agregarCliente(cliente);
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
+        usuarioDAO.agregarCliente(cliente);
 
         String correo = "correo_inexistente@gmail.com";
         String contra = "Prueba123";
@@ -173,11 +148,7 @@ public class UsuarioDAOTest {
     public void obtenerUsuarioCorreoContra_ValoresInexistentes_ReturnSuccess() throws Exception {
         // ARRANGE
         Usuario cliente = new Usuario("Diego", "Valenzuela", "Parra", "", "Prueba@gmail.com", "Prueba123", "", "", "cliente");
-        try {
-            usuarioDAO.agregarCliente(cliente);
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
+        usuarioDAO.agregarCliente(cliente);
 
         String correo = "correo_inexistente@gmail.com";
         String contra = "contra_inexistente";
@@ -199,12 +170,8 @@ public class UsuarioDAOTest {
         String tipoResultado;
 
         // ACT
-        try {
-            empleadoResultado = usuarioDAO.agregarEmpleado(empleado);
-            tipoResultado = empleadoResultado.getTipo();
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
+        empleadoResultado = usuarioDAO.agregarEmpleado(empleado);
+        tipoResultado = empleadoResultado.getTipo();
 
         // ASSERT
         assertNotNull(empleadoResultado);
@@ -220,12 +187,8 @@ public class UsuarioDAOTest {
         String tipoResultado;
 
         // ACT
-        try {
-            empleadoResultado = usuarioDAO.agregarEmpleado(empleado);
-            tipoResultado = empleadoResultado.getTipo();
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
+        empleadoResultado = usuarioDAO.agregarEmpleado(empleado);
+        tipoResultado = empleadoResultado.getTipo();
 
         // ASSERT
         assertNotNull(empleadoResultado);
@@ -241,12 +204,8 @@ public class UsuarioDAOTest {
         String tipoResultado;
 
         // ACT
-        try {
-            empleadoResultado = usuarioDAO.agregarEmpleado(empleado);
-            tipoResultado = empleadoResultado.getTipo();
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
+        empleadoResultado = usuarioDAO.agregarEmpleado(empleado);
+        tipoResultado = empleadoResultado.getTipo();
 
         // ASSERT
         assertNotNull(empleadoResultado);
@@ -262,12 +221,8 @@ public class UsuarioDAOTest {
         String tipoResultado;
 
         // ACT
-        try {
-            empleadoResultado = usuarioDAO.agregarEmpleado(empleado);
-            tipoResultado = empleadoResultado.getTipo();
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
+        empleadoResultado = usuarioDAO.agregarEmpleado(empleado);
+        tipoResultado = empleadoResultado.getTipo();
 
         // ASSERT
         assertNotNull(empleadoResultado);
@@ -278,21 +233,12 @@ public class UsuarioDAOTest {
     public void agregarEmpleado_EmpleadoCorreoExistente_ReturnFail() throws Exception {
         // ARRANGE
         Usuario empleado1 = new Usuario("Diego", "Valenzuela", "Parra", "0123456789", "Prueba@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "GERE");
-        try {
-            usuarioDAO.agregarEmpleado(empleado1);
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
-        
+        usuarioDAO.agregarEmpleado(empleado1);
         Usuario empleado2 = new Usuario("José Karim", "Franco", "Valencia", "9876543210", "Prueba@gmail.com", "Prueba321", "JKFV040112HSRLR1W4", "JKFV040112GHC", "RRHH");
         Usuario resultado;
-        
+
         // ACT
-        try {
-            resultado = usuarioDAO.agregarEmpleado(empleado2);
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
+        resultado = usuarioDAO.agregarEmpleado(empleado2);
 
         // ASSERT
         assertNotNull(resultado);
@@ -302,60 +248,39 @@ public class UsuarioDAOTest {
     public void agregarEmpleado_EmpleadoCurpExistente_ReturnFail() throws Exception {
         // ARRANGE
         Usuario empleado1 = new Usuario("Diego", "Valenzuela", "Parra", "0123456789", "diego@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "GERE");
-        try {
-            usuarioDAO.agregarEmpleado(empleado1);
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
-        
+        usuarioDAO.agregarEmpleado(empleado1);
+
         Usuario empleado2 = new Usuario("José Karim", "Franco", "Valencia", "9876543210", "karim@gmail.com", "Prueba321", "VAPD040603HSRLRGA6", "JKFV040112GHC", "RRHH");
         Usuario resultado;
-        
+
         // ACT
-        try {
-            resultado = usuarioDAO.agregarEmpleado(empleado2);
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
+        resultado = usuarioDAO.agregarEmpleado(empleado2);
 
         // ASSERT
         assertNotNull(resultado);
     }
-
 
     @Test
     public void agregarEmpleado_EmpleadoRfcExistente_ReturnFail() throws Exception {
         // ARRANGE
         Usuario empleado1 = new Usuario("Diego", "Valenzuela", "Parra", "0123456789", "diego@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "GERE");
-        try {
-            usuarioDAO.agregarEmpleado(empleado1);
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
-        
+        usuarioDAO.agregarEmpleado(empleado1);
+
         Usuario empleado2 = new Usuario("José Karim", "Franco", "Valencia", "9876543210", "karim@gmail.com", "Prueba321", "JKFV040112HSRLR1W4", "VAPD040603TQ1", "RRHH");
         Usuario resultado;
-        
+
         // ACT
-        try {
-            resultado = usuarioDAO.agregarEmpleado(empleado2);
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
+        resultado = usuarioDAO.agregarEmpleado(empleado2);
 
         // ASSERT
         assertNotNull(resultado);
     }
-    
+
     @Test
     public void obtenerEmpleadoCurp_CurpExistente_ReturnSuccess() throws Exception {
         // ARRANGE
         Usuario empleado = new Usuario("Diego", "Valenzuela", "Parra", "0123456789", "Prueba@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "GERE");
-        try {
-            usuarioDAO.agregarEmpleado(empleado);
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
+        usuarioDAO.agregarEmpleado(empleado);
 
         String curp = "VAPD040603HSRLRGA6";
         Usuario resultado;
@@ -366,7 +291,7 @@ public class UsuarioDAOTest {
         // ASSERT
         assertNotNull(resultado);
     }
-    
+
     @Test
     public void obtenerEmpleadoCurp_CurpInexistente_ReturnSuccess() throws Exception {
         String curp = "JKFV040112HSRLR1W4";
@@ -378,16 +303,12 @@ public class UsuarioDAOTest {
         // ASSERT
         assertNull(resultado);
     }
-    
+
     @Test
     public void obtenerEmpleadoRfc_RfcExistente_ReturnSuccess() throws Exception {
         // ARRANGE
         Usuario empleado = new Usuario("Diego", "Valenzuela", "Parra", "0123456789", "Prueba@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "GERE");
-        try {
-            usuarioDAO.agregarEmpleado(empleado);
-        } catch (PersistenciaException pe) {
-            throw new Exception(pe.getMessage());
-        }
+        usuarioDAO.agregarEmpleado(empleado);
 
         String rfc = "VAPD040603TQ1";
         Usuario resultado;
@@ -398,7 +319,7 @@ public class UsuarioDAOTest {
         // ASSERT
         assertNotNull(resultado);
     }
-    
+
     @Test
     public void obtenerEmpleadoRfc_RfcInexistente_ReturnSuccess() throws Exception {
         String rfc = "VAPD040603TQ1";

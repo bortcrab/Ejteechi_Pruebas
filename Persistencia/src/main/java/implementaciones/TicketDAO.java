@@ -5,6 +5,7 @@ package implementaciones;
 
 import colecciones.Respuesta;
 import colecciones.Ticket;
+import colecciones.Usuario;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.eq;
@@ -203,4 +204,15 @@ public class TicketDAO implements ITicketDAO {
         conexion.cerrarConexion(); // Cerramos la conexión.
     }
 
+    public void borrarTickets() {
+        // Creamos la conexión con el servidor.
+        MongoDatabase db = conexion.crearConexion();
+        // Obtenemos la colección de usuarios.
+        coleccion = db.getCollection("tickets", Ticket.class);
+        
+        Long eliminados = coleccion.deleteMany(new Document()).getDeletedCount();
+        
+        logger.log(Level.INFO, "Se han eliminado " + eliminados +" registros de la colección 'tickets'.");
+        conexion.cerrarConexion(); // Cerramos la conexión.
+    }
 }
