@@ -5,103 +5,206 @@
 package implementaciones;
 
 import colecciones.Usuario;
+import excepciones.PersistenciaException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.junit.jupiter.api.BeforeAll;
 
 /**
  *
  * @author Diego Valenzuela Parra
  */
-@ExtendWith(MockitoExtension.class)
 public class UsuarioDAOTest {
 
-    @Mock
-    private UsuarioDAO usuarioDAO;
-    
+    private static UsuarioDAO usuarioDAO;
+
     public UsuarioDAOTest() {
+    }
+
+    @BeforeAll
+    public static void setUpClass() {
+        usuarioDAO = new UsuarioDAO();
+    }
+
+    @AfterEach
+    public void tearDown() {
+        usuarioDAO.borrarUsuarios();
     }
 
     /**
      * Test of agregarUsuario method, of class UsuarioDAO.
      */
     @Test
-    public void agregarUsuario_UsuarioCorrecto_ReturnSuccess() {
+    public void agregarCliente_ClienteValido_ReturnSuccess() throws Exception {
         // ARRANGE
-        Usuario usuario = new Usuario("Diego", "Valenzuela", "Parra", "6441000000", "Prueba@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "cliente");
-        Usuario esperado = new Usuario("Diego", "Valenzuela", "Parra", "6441000000", "Prueba@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "cliente");
-        when(usuarioDAO.agregarUsuario(usuario)).thenReturn(esperado);
-        Usuario resultado;
-        
+        Usuario cliente = new Usuario("Diego", "Valenzuela", "Parra", "", "Prueba@gmail.com", "Prueba123", "", "", "cliente");
+        Usuario resultado = null;
+
         // ACT
-        resultado = usuarioDAO.agregarUsuario(usuario);
-        
+        try {
+            resultado = usuarioDAO.agregarCliente(cliente);
+        } catch (PersistenciaException pe) {
+            throw new Exception(pe.getMessage());
+        }
+
         // ASSERT
-        assertEquals(esperado, resultado);
-        verify(usuarioDAO, times(1)).agregarUsuario(usuario);
+        assertNotNull(resultado);
     }
 
     /**
-     * Test of obtenerUsuarioCurp method, of class UsuarioDAO.
+     * Test of agregarCliente method, of class UsuarioDAO.
      */
     @Test
-    public void obtenerUsuarioCurp_UsuarioExistente_ReturnSuccess() {
+    public void agregarCliente_ClienteCorreoDuplicado_ReturnFail() throws Exception {
         // ARRANGE
-        String curp = "VAPD040603HSRLRGA6";
-        Usuario esperado = new Usuario("Diego", "Valenzuela", "Parra", "6441000000", "Prueba@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "cliente");
-        when(usuarioDAO.obtenerUsuarioCurp(curp)).thenReturn(esperado);
-        Usuario resultado;
-        
+        Usuario cliente1 = new Usuario("Diego", "Valenzuela", "Parra", "", "Prueba@gmail.com", "Prueba123", "", "", "cliente");
+        Usuario cliente2 = new Usuario("José Karim", "Franco", "Valencia", "", "Prueba@gmail.com", "Prueba321", "", "", "cliente");
+        try {
+            usuarioDAO.agregarCliente(cliente1);
+        } catch (PersistenciaException pe) {
+            throw new Exception(pe.getMessage());
+        }
+        Usuario resultado = null;
+
         // ACT
-        resultado = usuarioDAO.obtenerUsuarioCurp(curp);
-        
+        try {
+            resultado = usuarioDAO.agregarCliente(cliente2);
+        } catch (PersistenciaException pe) {
+            throw new Exception(pe.getMessage());
+        }
+
         // ASSERT
-        assertEquals(esperado, resultado);
-        verify(usuarioDAO, times(1)).obtenerUsuarioCurp(curp);
+        assertNotNull(resultado);
     }
 
-    /**
-     * Test of obtenerUsuarioRfc method, of class UsuarioDAO.
-     */
     @Test
-    public void obtenerUsuarioRfc_UsuarioExistente_ReturnSuccess() {
+    public void obtenerUsuarioCorreo_CorreoExistente_ReturnSuccess() throws Exception {
         // ARRANGE
-        String rfc = "VAPD040603TQ1";
-        Usuario esperado = new Usuario("Diego", "Valenzuela", "Parra", "6441000000", "Prueba@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "cliente");
-        when(usuarioDAO.obtenerUsuarioRfc(rfc)).thenReturn(esperado);
-        Usuario resultado;
-        
+        Usuario cliente = new Usuario("Diego", "Valenzuela", "Parra", "", "Prueba@gmail.com", "Prueba123", "", "", "cliente");
+        try {
+            usuarioDAO.agregarCliente(cliente);
+        } catch (PersistenciaException pe) {
+            throw new Exception(pe.getMessage());
+        }
+
+        String correo = "Prueba@gmail.com";
+        Usuario resultado = null;
+
         // ACT
-        resultado = usuarioDAO.obtenerUsuarioRfc(rfc);
-        
+        resultado = usuarioDAO.obtenerUsuarioCorreo(correo);
+
         // ASSERT
-        assertEquals(esperado, resultado);
-        verify(usuarioDAO, times(1)).obtenerUsuarioRfc(rfc);
+        assertNotNull(resultado);
     }
 
-    /**
-     * Test of obtenerUsuarioCorreoContra method, of class UsuarioDAO.
-     */
     @Test
-    public void obtenerUsuarioCorreoContra_UsuarioExistente_ReturnSuccess() {
+    public void obtenerUsuarioCorreo_CorreoInexistente_ReturnSuccess() {
         // ARRANGE
         String correo = "Prueba@gmail.com";
-        String contrasenia = "Prueba123";
-        Usuario esperado = new Usuario("Diego", "Valenzuela", "Parra", "6441000000", "Prueba@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "cliente");
-        when(usuarioDAO.obtenerUsuarioCorreoContra(correo, contrasenia)).thenReturn(esperado);
         Usuario resultado;
-        
+
         // ACT
-        resultado = usuarioDAO.obtenerUsuarioCorreoContra(correo, contrasenia);
-        
+        resultado = usuarioDAO.obtenerUsuarioCorreo(correo);
+
         // ASSERT
-        assertEquals(esperado, resultado);
-        verify(usuarioDAO, times(1)).obtenerUsuarioCorreoContra(correo, contrasenia);
+        assertNull(resultado);
+    }
+
+    @Test
+    public void obtenerUsuarioCorreoContra_ValoresExistentes_ReturnSuccess() throws Exception {
+        // ARRANGE
+        Usuario cliente = new Usuario("Diego", "Valenzuela", "Parra", "", "Prueba@gmail.com", "Prueba123", "", "", "cliente");
+        try {
+            usuarioDAO.agregarCliente(cliente);
+        } catch (PersistenciaException pe) {
+            throw new Exception(pe.getMessage());
+        }
+        
+        String correo = "Prueba@gmail.com";
+        String contra = "Prueba123";
+        Usuario resultado;
+
+        // ACT
+        resultado = usuarioDAO.obtenerUsuarioCorreoContra(correo, contra);
+
+        // ASSERT
+        assertNotNull(resultado);
+    }
+
+    @Test
+    public void obtenerUsuarioCorreoContra_CorreoInexistente_ReturnSuccess() throws Exception {
+        // ARRANGE
+        Usuario cliente = new Usuario("Diego", "Valenzuela", "Parra", "", "Prueba@gmail.com", "Prueba123", "", "", "cliente");
+        try {
+            usuarioDAO.agregarCliente(cliente);
+        } catch (PersistenciaException pe) {
+            throw new Exception(pe.getMessage());
+        }
+        
+        String correo = "correo_inexistente@gmail.com";
+        String contra = "Prueba123";
+        Usuario resultado;
+
+        // ACT
+        resultado = usuarioDAO.obtenerUsuarioCorreoContra(correo, contra);
+
+        // ASSERT
+        assertNull(resultado);
+    }
+
+    @Test
+    public void obtenerUsuarioCorreoContra_ContraInexistente_ReturnSuccess() throws Exception {
+        // ARRANGE
+        String correo = "Prueba@gmail.com";
+        String contra = "contra_inexistente";
+        Usuario resultado;
+
+        // ACT
+        resultado = usuarioDAO.obtenerUsuarioCorreoContra(correo, contra);
+
+        // ASSERT
+        assertNull(resultado);
+    }
+
+    @Test
+    public void obtenerUsuarioCorreoContra_ValoresInexistentes_ReturnSuccess() throws Exception {
+        // ARRANGE
+        Usuario cliente = new Usuario("Diego", "Valenzuela", "Parra", "", "Prueba@gmail.com", "Prueba123", "", "", "cliente");
+        try {
+            usuarioDAO.agregarCliente(cliente);
+        } catch (PersistenciaException pe) {
+            throw new Exception(pe.getMessage());
+        }
+        
+        String correo = "correo_inexistente@gmail.com";
+        String contra = "contra_inexistente";
+        Usuario resultado;
+
+        // ACT
+        resultado = usuarioDAO.obtenerUsuarioCorreoContra(correo, contra);
+
+        // ASSERT
+        assertNull(resultado);
+    }
+    
+    @Test
+    public void agregarEmpleado_EmpleadoValido_ReturnSuccess() throws Exception {
+        // ARRANGE
+        Usuario cliente = new Usuario("Diego", "Valenzuela", "Parra", "0123456789", "Prueba@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "cliente");
+        Usuario resultado = null;
+
+        // ACT
+        try {
+            resultado = usuarioDAO.agregarCliente(cliente);
+        } catch (PersistenciaException pe) {
+            throw new Exception(pe.getMessage());
+        }
+
+        // ASSERT
+        assertNotNull(resultado);
     }
 
 }

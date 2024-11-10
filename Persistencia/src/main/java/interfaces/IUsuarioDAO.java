@@ -4,6 +4,7 @@
 package interfaces;
 
 import colecciones.Usuario;
+import excepciones.PersistenciaException;
 
 /**
  * Interfaz que define los métodos para acceder y manipular datos relacionados
@@ -21,7 +22,15 @@ public interface IUsuarioDAO {
      * @param usuario Usuario a agregar..
      * @return El usuario con su ID de la base de datos.
      */
-    public Usuario agregarUsuario(Usuario usuario);
+    public Usuario agregarCliente(Usuario cliente) throws PersistenciaException;
+    
+    /**
+     * Método para agregar un usuario a la base de datos.
+     *
+     * @param usuario Usuario a agregar..
+     * @return El usuario con su ID de la base de datos.
+     */
+    public Usuario agregarEmpleado(Usuario empleado) throws PersistenciaException;
 
     /**
      * Método para obtener un usuario de la base de datos dado su correo.

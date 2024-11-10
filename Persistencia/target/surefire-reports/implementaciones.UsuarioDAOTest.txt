@@ -1,4 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: implementaciones.UsuarioDAOTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.771 s -- in implementaciones.UsuarioDAOTest
+Tests run: 8, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.518 s <<< FAILURE! -- in implementaciones.UsuarioDAOTest
+implementaciones.UsuarioDAOTest.agregarCliente_ClienteCorreoDuplicado_ReturnFail -- Time elapsed: 0.049 s <<< ERROR!
+java.lang.Exception: Ya existe un usuario con ese correo.
+	at implementaciones.UsuarioDAOTest.agregarCliente_ClienteCorreoDuplicado_ReturnFail(UsuarioDAOTest.java:76)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+

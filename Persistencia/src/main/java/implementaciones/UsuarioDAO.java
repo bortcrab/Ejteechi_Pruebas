@@ -8,6 +8,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import conexion.Conexion;
 import conexion.IConexion;
+import excepciones.PersistenciaException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.bson.Document;
@@ -39,22 +40,56 @@ public class UsuarioDAO implements IUsuarioDAO {
      * @return El usuario con su ID de la base de datos.
      */
     @Override
-    public Usuario agregarUsuario(Usuario usuario) {
+    public Usuario agregarCliente(Usuario cliente) throws PersistenciaException {
+        Usuario clienteExistente = obtenerUsuarioCorreo(cliente.getCorreo());
+
+        // Checamos que no exista un cliente con ese correo.
+        if (clienteExistente != null) {
+            throw new PersistenciaException("Ya existe un usuario con ese correo.");
+        }
+        
+        // Creamos la conexión con el servidor.
+        MongoDatabase db = conexion.crearConexion();
+        // Obtenemos la colección de usuarios.
+        coleccion = db.getCollection("usuarios", Usuario.class);
+        
+        
+        // Mandamos a insertar el cliente.
+        coleccion.insertOne(cliente);
+        
+        // Imprimimos lo que se hizo.
+        logger.log(Level.INFO, "Se ha insertado un documento en la colección 'usuarios'.");
+        conexion.cerrarConexion(); // Cerramos la conexión.
+        
+        // Actualizamos el cliente ahora sí con su ID.
+        cliente = obtenerUsuarioCorreo(cliente.getCorreo());
+        
+        return cliente;
+    }
+    
+    /**
+     * Método para agregar un usuario a la base de datos.
+     *
+     * @param usuario Usuario a agregar.
+     * @return El usuario con su ID de la base de datos.
+     */
+    @Override
+    public Usuario agregarEmpleado(Usuario empleado) throws PersistenciaException {
         // Creamos la conexión con el servidor.
         MongoDatabase db = conexion.crearConexion();
         // Obtenemos la colección de usuarios.
         coleccion = db.getCollection("usuarios", Usuario.class);
 
         // Mandamos a insertar el usuario.
-        coleccion.insertOne(usuario);
+        coleccion.insertOne(empleado);
         
         // Imprimimos lo que se hizo.
         logger.log(Level.INFO, "Se ha insertado un documento en la colección 'usuarios'.");
         conexion.cerrarConexion(); // Cerramos la conexión.
         
-        usuario = obtenerUsuarioCorreo(usuario.getCorreo());
+        empleado = obtenerUsuarioCorreo(empleado.getCorreo());
         
-        return usuario;
+        return empleado;
     }
 
     /**
@@ -189,6 +224,18 @@ public class UsuarioDAO implements IUsuarioDAO {
 
         // Retornamos el usuario encontrado.
         return usuario;
+    }
+    
+    public void borrarUsuarios() {
+        // Creamos la conexión con el servidor.
+        MongoDatabase db = conexion.crearConexion();
+        // Obtenemos la colección de usuarios.
+        coleccion = db.getCollection("usuarios", Usuario.class);
+        
+        Long eliminados = coleccion.deleteMany(new Document()).getDeletedCount();
+        
+        logger.log(Level.INFO, "Se han eliminado " + eliminados +" registros de la colección 'usuarios'.");
+        conexion.cerrarConexion(); // Cerramos la conexión.
     }
 
 }

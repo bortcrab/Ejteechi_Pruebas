@@ -6,8 +6,11 @@ package implementaciones;
 import colecciones.Usuario;
 import dtos.UsuarioDTO;
 import excepciones.ObjetosNegocioException;
+import excepciones.PersistenciaException;
 import interfaces.IUsuarioBO;
 import interfaces.IUsuarioDAO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import utilidades.Encriptador;
 
 /**
@@ -67,8 +70,12 @@ public class UsuarioBO implements IUsuarioBO {
         // Convertimos el usuario.
         usuarioEnt = convertirUsuario(usuarioDTO);
 
-        // Lo mandamos a agregar.
-        usuarioEnt = usuarioDAO.agregarUsuario(usuarioEnt);
+        try {
+            // Lo mandamos a agregar.
+            usuarioEnt = usuarioDAO.agregarCliente(usuarioEnt);
+        } catch (PersistenciaException pe) {
+            throw new ObjetosNegocioException(pe.getMessage());
+        }
 
         // Lo convertirmos de vuelta a DTO:
         usuarioDTO = convertirUsuario(usuarioEnt);
