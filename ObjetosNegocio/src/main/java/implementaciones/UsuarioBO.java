@@ -53,14 +53,14 @@ public class UsuarioBO implements IUsuarioBO {
         // Si el usuario es un empleado.
         if (!usuarioDTO.getTipo().equals("cliente")) {
             // Obtenemos el usuario de la base de datos con base a la CURP
-            usuarioEnt = usuarioDAO.obtenerUsuarioCurp(usuarioDTO.getCurp());
+            usuarioEnt = usuarioDAO.obtenerEmpleadoCurp(usuarioDTO.getCurp());
             // Si se obtuvo algo, lanzamos una excepción.
             if (usuarioEnt != null) {
                 throw new ObjetosNegocioException("Ya se registró esa CURP.");
             }
 
             // Obtenemos el usuario de la base de datos con base al RFC.
-            usuarioEnt = usuarioDAO.obtenerUsuarioRfc(usuarioDTO.getRfc());
+            usuarioEnt = usuarioDAO.obtenerEmpleadoRfc(usuarioDTO.getRfc());
             // Si se obtuvo algo, lanzamos una excepción.
             if (usuarioEnt != null) {
                 throw new ObjetosNegocioException("Ya se registró ese RFC.");

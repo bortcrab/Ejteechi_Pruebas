@@ -75,6 +75,25 @@ public class UsuarioDAO implements IUsuarioDAO {
      */
     @Override
     public Usuario agregarEmpleado(Usuario empleado) throws PersistenciaException {
+        Usuario usuarioExistente = obtenerUsuarioCorreo(empleado.getCorreo());
+        // Checamos que no exista un usuario con ese correo.
+        if (usuarioExistente != null) {
+            throw new PersistenciaException("Ya existe un usuario con ese correo.");
+        }
+        
+        usuarioExistente = obtenerEmpleadoCurp(empleado.getCurp());
+        // Checamos que no exista un empleado con ese correo.
+        if (usuarioExistente != null) {
+            throw new PersistenciaException("Ya existe un empleado con esa CURP.");
+        }
+        
+        usuarioExistente = obtenerEmpleadoRfc(empleado.getRfc());
+        // Checamos que no exista un cliente con ese correo.
+        if (usuarioExistente != null) {
+            throw new PersistenciaException("Ya existe un empleado con ese RFC.");
+        }
+
+
         // Creamos la conexión con el servidor.
         MongoDatabase db = conexion.crearConexion();
         // Obtenemos la colección de usuarios.
@@ -132,7 +151,7 @@ public class UsuarioDAO implements IUsuarioDAO {
      * @return El usuario encontrado, null si no se encontró nada.
      */
     @Override
-    public Usuario obtenerUsuarioCurp(String curp) {
+    public Usuario obtenerEmpleadoCurp(String curp) {
         // Creamos la conexión con el servidor.
         MongoDatabase db = conexion.crearConexion();
         // Obtenemos la colección de usuarios.
@@ -165,7 +184,7 @@ public class UsuarioDAO implements IUsuarioDAO {
      * @return El usuario encontrado, null si no se encontró nada.
      */
     @Override
-    public Usuario obtenerUsuarioRfc(String rfc) {
+    public Usuario obtenerEmpleadoRfc(String rfc) {
         // Creamos la conexión con el servidor.
         MongoDatabase db = conexion.crearConexion();
         // Obtenemos la colección de usuarios.

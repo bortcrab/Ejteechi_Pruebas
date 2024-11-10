@@ -46,7 +46,7 @@ public interface IUsuarioDAO {
      * @param curp CURP del usuario a buscar.
      * @return El usuario encontrado, null si no se encontró nada.
      */
-    public Usuario obtenerUsuarioCurp(String curp);
+    public Usuario obtenerEmpleadoCurp(String curp);
 
     /**
      * Método para obtener un usuario de la base de datos dado su RFC.
@@ -54,7 +54,7 @@ public interface IUsuarioDAO {
      * @param rfc RFC del usuario a buscar.
      * @return El usuario encontrado, null si no se encontró nada.
      */
-    public Usuario obtenerUsuarioRfc(String rfc);
+    public Usuario obtenerEmpleadoRfc(String rfc);
 
     /**
      * Método para obtener un usuario de la base de datos dados su correo y

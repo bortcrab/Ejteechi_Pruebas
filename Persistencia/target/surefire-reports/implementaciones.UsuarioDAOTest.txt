@@ -1,10 +1,31 @@
 -------------------------------------------------------------------------------
 Test set: implementaciones.UsuarioDAOTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.518 s <<< FAILURE! -- in implementaciones.UsuarioDAOTest
-implementaciones.UsuarioDAOTest.agregarCliente_ClienteCorreoDuplicado_ReturnFail -- Time elapsed: 0.049 s <<< ERROR!
+Tests run: 19, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.996 s <<< FAILURE! -- in implementaciones.UsuarioDAOTest
+implementaciones.UsuarioDAOTest.agregarEmpleado_EmpleadoCorreoExistente_ReturnFail -- Time elapsed: 0.293 s <<< ERROR!
+java.lang.Exception: Ya existe un usuario con ese correo.
+	at implementaciones.UsuarioDAOTest.agregarEmpleado_EmpleadoCorreoExistente_ReturnFail(UsuarioDAOTest.java:294)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+implementaciones.UsuarioDAOTest.agregarEmpleado_EmpleadoRfcExistente_ReturnFail -- Time elapsed: 0.068 s <<< ERROR!
+java.lang.Exception: Ya existe un empleado con ese RFC.
+	at implementaciones.UsuarioDAOTest.agregarEmpleado_EmpleadoRfcExistente_ReturnFail(UsuarioDAOTest.java:343)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+implementaciones.UsuarioDAOTest.agregarCliente_ClienteCorreoDuplicado_ReturnFail -- Time elapsed: 0.031 s <<< ERROR!
 java.lang.Exception: Ya existe un usuario con ese correo.
 	at implementaciones.UsuarioDAOTest.agregarCliente_ClienteCorreoDuplicado_ReturnFail(UsuarioDAOTest.java:76)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+implementaciones.UsuarioDAOTest.agregarEmpleado_EmpleadoCurpExistente_ReturnFail -- Time elapsed: 0.047 s <<< ERROR!
+java.lang.Exception: Ya existe un empleado con esa CURP.
+	at implementaciones.UsuarioDAOTest.agregarEmpleado_EmpleadoCurpExistente_ReturnFail(UsuarioDAOTest.java:318)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
