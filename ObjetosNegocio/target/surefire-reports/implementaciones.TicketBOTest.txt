@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: utilidades.EncriptadorTest
+Test set: implementaciones.TicketBOTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.289 s -- in utilidades.EncriptadorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.912 s -- in implementaciones.TicketBOTest

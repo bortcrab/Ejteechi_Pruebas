@@ -36,8 +36,8 @@ public class MapaBO implements IMapaBO {
     /**
      * Constructor que inicializa el atributo de la clase.
      */
-    public MapaBO() {
-        this.mapaDAO = new MapaDAO();
+    public MapaBO(IMapaDAO mapaDAO) {
+        this.mapaDAO = mapaDAO;
     }
 
     /**
@@ -51,10 +51,14 @@ public class MapaBO implements IMapaBO {
         try {
             // Mandamos a obtener el mapa de la base de datos.
             Mapa mapa = mapaDAO.obtenerMapa();
-            // Lo convertimos a DTO.
-            MapaDTO mapaDTO = convertirMapa(mapa);
-            // Lo devolvemos.
-            return mapaDTO;
+
+            if (mapa != null) {
+                // Lo convertimos a DTO.
+                MapaDTO mapaDTO = convertirMapa(mapa);
+                // Lo devolvemos.
+                return mapaDTO;
+            }
+            throw new ObjetosNegocioException("No se encontró ningún mapa.");
         } catch (PersistenciaException pe) {
             // Mandamos una excepción si no se encontró ningún mapa.
             throw new ObjetosNegocioException(pe.getMessage());
@@ -67,7 +71,7 @@ public class MapaBO implements IMapaBO {
      * @param mapa Mapa entidad a convertir.
      * @return El mapa convertido a DTO.
      */
-    private MapaDTO convertirMapa(Mapa mapa) {
+    public MapaDTO convertirMapa(Mapa mapa) {
         // Obtenemos la lista de líneas del mapa.
         List<Linea> lineas = mapa.getLineas();
         // Creamos una lista de líneas DTO.
@@ -92,7 +96,7 @@ public class MapaBO implements IMapaBO {
      * @param linea Línea entidad a convertir.
      * @return La línea convertida a DTO.
      */
-    private LineaDTO convertirLinea(Linea linea) {
+    public LineaDTO convertirLinea(Linea linea) {
         // Obtenemos la lista de paradas de la línea.
         List<List<Double>> paradas = linea.getParadas();
         // Creamos un set de Waypoints para almacenar las paradas.
@@ -121,7 +125,7 @@ public class MapaBO implements IMapaBO {
      * @param ruta Ruta entidad a convertir.
      * @return La ruta convertida a DTO.
      */
-    private RutaDTO convertirRuta(Ruta ruta) {
+    public RutaDTO convertirRuta(Ruta ruta) {
         // Obtenemos los puntos por donde pasa la ruta.
         List<List<Double>> puntos = ruta.getPuntos();
         // Creamos una lista de posiciones geográficas para guardar los puntos.

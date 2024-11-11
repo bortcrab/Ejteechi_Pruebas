@@ -1,22 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
- */
-package implementaciones;
-
-import colecciones.Usuario;
-import excepciones.PersistenciaException;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeAll;
-
-/**
- *
- * @author Diego Valenzuela Parra
- */
-public class UsuarioDAOTest {
-
+///*
+// * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+// * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
+// */
+//package implementaciones;
+//
+//import colecciones.Usuario;
+//import excepciones.PersistenciaException;
+//import org.junit.jupiter.api.AfterEach;
+//import org.junit.jupiter.api.Test;
+//import static org.junit.jupiter.api.Assertions.*;
+//import org.junit.jupiter.api.BeforeAll;
+//
+///**
+// *
+// * @author Diego Valenzuela Parra
+// */
+//public class UsuarioDAOTest {
+//
 //    private static UsuarioDAO usuarioDAO;
 //
 //    public UsuarioDAOTest() {
@@ -331,4 +331,4 @@ public class UsuarioDAOTest {
 //        // ASSERT
 //        assertNull(resultado);
 //    }
-}
+//}

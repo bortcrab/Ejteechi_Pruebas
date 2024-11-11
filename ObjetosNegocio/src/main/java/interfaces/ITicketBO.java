@@ -6,6 +6,7 @@ package interfaces;
 import dtos.RespuestaDTO;
 import dtos.TicketDTO;
 import dtos.UsuarioDTO;
+import excepciones.ObjetosNegocioException;
 import java.util.List;
 import org.bson.types.ObjectId;
 
@@ -38,7 +39,7 @@ public interface ITicketBO {
      * @param folio Folio del ticket que se quiere obtener.
      * @return El ticket encontrado.
      */
-    public TicketDTO obtenerTicket(ObjectId folio);
+    public TicketDTO obtenerTicket(ObjectId folio) throws ObjetosNegocioException;
 
     /**
      * Método para enviar una respuesta de cliente a un ticket.
@@ -47,7 +48,7 @@ public interface ITicketBO {
      * @param respuestaDTO Respuesta a enviar.
      * @return El ticket actualizado.
      */
-    public TicketDTO enviarRespuesta(ObjectId folio, RespuestaDTO respuestaDTO);
+    public TicketDTO enviarRespuesta(ObjectId folio, RespuestaDTO respuestaDTO) throws ObjetosNegocioException;
 
     /**
      * Método para enviar una respuesta de trabajador a un ticket.
@@ -57,7 +58,7 @@ public interface ITicketBO {
      * @param idAtendiendo ID del trabajador que atenderá el ticket.
      * @return El ticket actualizado.
      */
-    public TicketDTO enviarRespuestaTrabajador(ObjectId folio, RespuestaDTO respuestaDTO, ObjectId idAtendiendo);
+    public TicketDTO enviarRespuestaTrabajador(ObjectId folio, RespuestaDTO respuestaDTO, ObjectId idAtendiendo) throws ObjetosNegocioException;
 
     /**
      * Método para obtener todos los tickets que el trabajador esté atendiendo o
@@ -73,5 +74,5 @@ public interface ITicketBO {
      *
      * @param ticketDTO Ticket a actualizar.
      */
-    public void actualizarTicket(TicketDTO ticketDTO);
+    public void actualizarTicket(TicketDTO ticketDTO) throws ObjetosNegocioException;
 }
