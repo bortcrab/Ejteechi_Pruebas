@@ -5,6 +5,8 @@ package atenderTickets;
 
 import dtos.RespuestaDTO;
 import dtos.TicketDTO;
+import excepciones.ObjetosNegocioException;
+import interfaces.ITicketBO;
 import java.util.List;
 import org.bson.types.ObjectId;
 
@@ -21,8 +23,8 @@ public class FacadeAtenderTickets implements IAtenderTickets {
     /**
      * Constructor que inicializa el atributo de la clase.
      */
-    public FacadeAtenderTickets() {
-        ctrlAtenderTickets = new CtrlAtenderTickets();
+    public FacadeAtenderTickets(CtrlAtenderTickets ctrlAtenderTickets1) {
+        this.ctrlAtenderTickets = ctrlAtenderTickets1;
     }
 
     /**
@@ -46,7 +48,7 @@ public class FacadeAtenderTickets implements IAtenderTickets {
      * @return El ticket actualizado.
      */
     @Override
-    public TicketDTO enviarRespuestaTrabajador(ObjectId folio, RespuestaDTO respuesta, ObjectId idAtendiendo) {
+    public TicketDTO enviarRespuestaTrabajador(ObjectId folio, RespuestaDTO respuesta, ObjectId idAtendiendo) throws ObjetosNegocioException {
         return ctrlAtenderTickets.enviarRespuestaTrabajador(folio, respuesta, idAtendiendo);
     }
 
@@ -56,7 +58,7 @@ public class FacadeAtenderTickets implements IAtenderTickets {
      * @param ticket Ticket a actualizar.
      */
     @Override
-    public void cambiarEstado(TicketDTO ticket) {
+    public void cambiarEstado(TicketDTO ticket) throws ObjetosNegocioException {
         ctrlAtenderTickets.cambiarEstado(ticket);
     }
 

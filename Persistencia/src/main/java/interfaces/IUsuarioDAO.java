@@ -66,4 +66,5 @@ public interface IUsuarioDAO {
      */
     public Usuario obtenerUsuarioCorreoContra(String correo, String contrasenia);
 
+    public void borrarUsuarios();
 }

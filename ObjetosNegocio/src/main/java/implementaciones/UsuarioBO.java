@@ -125,7 +125,7 @@ public class UsuarioBO implements IUsuarioBO {
      * @param usuarioDTO UsuarioDTO a convertir.
      * @return La entidad de Usuario ya convertida.
      */
-    private Usuario convertirUsuario(UsuarioDTO usuarioDTO) {
+    public Usuario convertirUsuario(UsuarioDTO usuarioDTO) {
         Usuario usuarioEnt = new Usuario(
                 usuarioDTO.getNombres(),
                 usuarioDTO.getApellidoPaterno(),
@@ -146,7 +146,7 @@ public class UsuarioBO implements IUsuarioBO {
      * @param usuarioEnt Entidad de Usuario a convertir.
      * @return UsuarioDTO ya convertido.
      */
-    private UsuarioDTO convertirUsuario(Usuario usuarioEnt) {
+    public UsuarioDTO convertirUsuario(Usuario usuarioEnt) {
         UsuarioDTO usuarioDTO = new UsuarioDTO(
                 usuarioEnt.getId(),
                 usuarioEnt.getNombres(),
@@ -160,5 +160,9 @@ public class UsuarioBO implements IUsuarioBO {
                 usuarioEnt.getTipo());
 
         return usuarioDTO;
+    }
+    
+    public void borrarUsuarios() {
+        usuarioDAO.borrarUsuarios();
     }
 }

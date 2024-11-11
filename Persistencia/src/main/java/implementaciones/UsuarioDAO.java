@@ -245,6 +245,7 @@ public class UsuarioDAO implements IUsuarioDAO {
         return usuario;
     }
     
+    @Override
     public void borrarUsuarios() {
         // Creamos la conexión con el servidor.
         MongoDatabase db = conexion.crearConexion();

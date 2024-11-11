@@ -19,7 +19,4 @@
 *.tar.gz
 *.rar
 
-/Presentacion/target/routing-graph-cache
-/Persistencia/nbproject/
-/ObjetosNegocio/nbproject/
-/Presentacion/nbproject/
+

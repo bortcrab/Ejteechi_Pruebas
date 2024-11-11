@@ -5,6 +5,7 @@ package atenderTickets;
 
 import dtos.RespuestaDTO;
 import dtos.TicketDTO;
+import excepciones.ObjetosNegocioException;
 import java.util.List;
 import org.bson.types.ObjectId;
 
@@ -22,7 +23,7 @@ public interface IAtenderTickets {
      * @param idAtendiendo ID del trabajador.
      * @return Lista de tickets encontrados.
      */
-    public List<TicketDTO> obtenerTodosTickets(ObjectId idAtendiendo);
+    public List<TicketDTO> obtenerTodosTickets(ObjectId idAtendiendo) throws ObjetosNegocioException;
 
     /**
      * Método para enviar una respuesta de trabajador a un ticket.
@@ -32,12 +33,12 @@ public interface IAtenderTickets {
      * @param idAtendiendo ID del trabajador que atenderá el ticket.
      * @return El ticket actualizado.
      */
-    public TicketDTO enviarRespuestaTrabajador(ObjectId folio, RespuestaDTO respuesta, ObjectId idAtendiendo);
+    public TicketDTO enviarRespuestaTrabajador(ObjectId folio, RespuestaDTO respuesta, ObjectId idAtendiendo) throws ObjetosNegocioException;
 
     /**
      * Método que actualiza el estado de un ticket.
      *
      * @param ticket Ticket a actualizar.
      */
-    public void cambiarEstado(TicketDTO ticket);
+    public void cambiarEstado(TicketDTO ticket) throws ObjetosNegocioException;
 }

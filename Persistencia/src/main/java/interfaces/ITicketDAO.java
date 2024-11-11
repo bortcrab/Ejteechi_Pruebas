@@ -2,6 +2,7 @@ package interfaces;
 
 import colecciones.Respuesta;
 import colecciones.Ticket;
+import excepciones.PersistenciaException;
 import java.util.List;
 import org.bson.types.ObjectId;
 
@@ -34,7 +35,7 @@ public interface ITicketDAO {
      * @param folio Folio del ticket a buscar.
      * @return El ticket encontrado.
      */
-    public Ticket obtenerTicket(ObjectId folio);
+    public Ticket obtenerTicket(ObjectId folio) throws PersistenciaException;
 
     /**
      * Método para agregar una respuesta a un ticket.
@@ -42,8 +43,7 @@ public interface ITicketDAO {
      * @param folio Folio del ticket al que se le agregará la respuesta.
      * @param respuesta Respuesta a agregar.
      */
-    public void agregarRespuesta(ObjectId folio, Respuesta respuesta);
-
+    public void agregarRespuesta(ObjectId folio, Respuesta respuesta) throws PersistenciaException;
     /**
      * Método para obtener todos los tickets atendidos por un trabajador en
      * específico o que no están siendo atendidos por nadie.
@@ -58,6 +58,6 @@ public interface ITicketDAO {
      *
      * @param ticket Ticket a actualizar.
      */
-    public void actualizarTicket(Ticket ticket);
+    public void actualizarTicket(Ticket ticket) throws PersistenciaException;
 
 }

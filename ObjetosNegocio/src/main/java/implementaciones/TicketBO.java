@@ -8,6 +8,8 @@ import colecciones.Ticket;
 import dtos.RespuestaDTO;
 import dtos.TicketDTO;
 import dtos.UsuarioDTO;
+import excepciones.ObjetosNegocioException;
+import excepciones.PersistenciaException;
 import interfaces.ITicketBO;
 import interfaces.ITicketDAO;
 import java.util.ArrayList;
@@ -27,8 +29,8 @@ public class TicketBO implements ITicketBO {
     /**
      * Constructor que inicializa los atributos de la clase.
      */
-    public TicketBO() {
-        this.ticketDAO = new TicketDAO();
+    public TicketBO(ITicketDAO ticketDAO) {
+        this.ticketDAO = ticketDAO;
     }
 
     /**
@@ -74,9 +76,18 @@ public class TicketBO implements ITicketBO {
      * @return El ticket encontrado.
      */
     @Override
-    public TicketDTO obtenerTicket(ObjectId folio) {
+    public TicketDTO obtenerTicket(ObjectId folio) throws ObjetosNegocioException {
         // Obtenemos el ticket dado el folio.
-        Ticket ticketEnt = ticketDAO.obtenerTicket(folio);
+        Ticket ticketEnt;
+        try {
+            ticketEnt = ticketDAO.obtenerTicket(folio);
+
+            if (ticketEnt == null) {
+                throw new ObjetosNegocioException("No se encontró un ticket con el folio dado.");
+            }
+        } catch (PersistenciaException pe) {
+            throw new ObjetosNegocioException(pe.getMessage());
+        }
 
         // Lo convertimos a DTO.
         TicketDTO ticketDTO = convertirTicket(ticketEnt);
@@ -93,15 +104,19 @@ public class TicketBO implements ITicketBO {
      * @return El ticket actualizado.
      */
     @Override
-    public TicketDTO enviarRespuesta(ObjectId folio, RespuestaDTO respuestaDTO) {
+    public TicketDTO enviarRespuesta(ObjectId folio, RespuestaDTO respuestaDTO) throws ObjetosNegocioException {
         // Convertimos la respuesta a entidad.
         Respuesta respuestaEnt = convertirRespuesta(respuestaDTO);
 
-        // Mandamos a agregar la respuesta.
-        ticketDAO.agregarRespuesta(folio, respuestaEnt);
+        try {
+            // Mandamos a agregar la respuesta.
+            ticketDAO.agregarRespuesta(folio, respuestaEnt);
 
-        // Retornamos el ticket actualizado.
-        return this.obtenerTicket(folio);
+            // Retornamos el ticket actualizado.
+            return this.obtenerTicket(folio);
+        } catch (PersistenciaException pe) {
+            throw new ObjetosNegocioException(pe.getMessage());
+        }
     }
 
     /**
@@ -113,23 +128,31 @@ public class TicketBO implements ITicketBO {
      * @return El ticket actualizado.
      */
     @Override
-    public TicketDTO enviarRespuestaTrabajador(ObjectId folio, RespuestaDTO respuestaDTO, ObjectId idAtendiendo) {
-        // Convertimos la respuesta a entidad y la agregamos.
-        Respuesta respuestaEnt = convertirRespuesta(respuestaDTO);
-        ticketDAO.agregarRespuesta(folio, respuestaEnt);
+    public TicketDTO enviarRespuestaTrabajador(ObjectId folio, RespuestaDTO respuestaDTO, ObjectId idAtendiendo) throws ObjetosNegocioException {
+        try {
+            // Convertimos la respuesta a entidad y la agregamos.
+            Respuesta respuestaEnt = convertirRespuesta(respuestaDTO);
+            ticketDAO.agregarRespuesta(folio, respuestaEnt);
 
-        // Obtenemos el ticket actualizado.
-        Ticket ticketEnt = ticketDAO.obtenerTicket(folio);
+            // Obtenemos el ticket actualizado.
+            Ticket ticketEnt = ticketDAO.obtenerTicket(folio);
 
-        // Si no hay nadie atendiéndolo, se asignamos el idAtendiendo del parámetro.
-        if (ticketEnt.getIdAtendiendo() == null) {
-            ticketEnt.setIdAtendiendo(idAtendiendo);
-            // Mandamos a actualizar el ticket.
-            ticketDAO.actualizarTicket(ticketEnt);
+            if (ticketEnt == null) {
+                throw new ObjetosNegocioException("No se encontró un ticket con el folio dado.");
+            }
+
+            // Si no hay nadie atendiéndolo, se asignamos el idAtendiendo del parámetro.
+            if (ticketEnt.getIdAtendiendo() == null) {
+                ticketEnt.setIdAtendiendo(idAtendiendo);
+                // Mandamos a actualizar el ticket.
+                ticketDAO.actualizarTicket(ticketEnt);
+            }
+
+            // Retornamos el ticket actualizado.
+            return this.obtenerTicket(folio);
+        } catch (PersistenciaException pe) {
+            throw new ObjetosNegocioException(pe.getMessage());
         }
-
-        // Retornamos el ticket actualizado.
-        return this.obtenerTicket(folio);
     }
 
     /**
@@ -160,15 +183,19 @@ public class TicketBO implements ITicketBO {
      * @param ticketDTO Ticket a actualizar.
      */
     @Override
-    public void actualizarTicket(TicketDTO ticketDTO) {
-        // Convertimos el ticket a entidad.
-        Ticket ticketEnt = convertirTicket(ticketDTO);
+    public void actualizarTicket(TicketDTO ticketDTO) throws ObjetosNegocioException {
+        try {
+            // Convertimos el ticket a entidad.
+            Ticket ticketEnt = convertirTicket(ticketDTO);
 
-        // Le asignamos el id del usuario.
-        ticketEnt.setIdUsuario(ticketDTO.getIdUsuario());
+            // Le asignamos el id del usuario.
+            ticketEnt.setIdUsuario(ticketDTO.getIdUsuario());
 
-        // Mandamos a actualizar el ticket.
-        ticketDAO.actualizarTicket(ticketEnt);
+            // Mandamos a actualizar el ticket.
+            ticketDAO.actualizarTicket(ticketEnt);
+        } catch (PersistenciaException pe) {
+            throw new ObjetosNegocioException(pe.getMessage());
+        }
     }
 
     /**

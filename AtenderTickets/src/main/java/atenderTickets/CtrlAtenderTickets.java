@@ -5,8 +5,10 @@ package atenderTickets;
 
 import dtos.RespuestaDTO;
 import dtos.TicketDTO;
+import excepciones.ObjetosNegocioException;
 import implementaciones.TicketBO;
 import interfaces.ITicketBO;
+import interfaces.ITicketDAO;
 import java.util.List;
 import org.bson.types.ObjectId;
 
@@ -22,8 +24,8 @@ public class CtrlAtenderTickets {
     /**
      * Constructor que inicializa el atributo de la clase.
      */
-    public CtrlAtenderTickets() {
-        this.ticketBO = new TicketBO();
+    public CtrlAtenderTickets(ITicketBO ticketBO) {
+        this.ticketBO = ticketBO;
     }
 
     /**
@@ -45,7 +47,7 @@ public class CtrlAtenderTickets {
      * @param idAtendiendo ID del trabajador que atenderá el ticket.
      * @return El ticket actualizado.
      */
-    public TicketDTO enviarRespuestaTrabajador(ObjectId folio, RespuestaDTO respuesta, ObjectId idAtendiendo)  {
+    public TicketDTO enviarRespuestaTrabajador(ObjectId folio, RespuestaDTO respuesta, ObjectId idAtendiendo) throws ObjetosNegocioException  {
         return ticketBO.enviarRespuestaTrabajador(folio, respuesta, idAtendiendo);
     }
 
@@ -54,7 +56,7 @@ public class CtrlAtenderTickets {
      *
      * @param ticket Ticket a actualizar.
      */
-    public void cambiarEstado(TicketDTO ticket) {
+    public void cambiarEstado(TicketDTO ticket) throws ObjetosNegocioException {
         ticketBO.actualizarTicket(ticket);
     }
 }

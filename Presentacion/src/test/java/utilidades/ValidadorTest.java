@@ -225,5 +225,4 @@ public class ValidadorTest {
         assertEquals("El apellido paterno sólo puede tener letras.", exception.getMessage());
     }
 
-
 }

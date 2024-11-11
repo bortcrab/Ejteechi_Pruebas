@@ -6,6 +6,7 @@ package administrarTickets;
 import dtos.RespuestaDTO;
 import dtos.TicketDTO;
 import dtos.UsuarioDTO;
+import excepciones.ObjetosNegocioException;
 import java.util.List;
 import org.bson.types.ObjectId;
 
@@ -22,8 +23,8 @@ public class FacadeAdministrarTickets implements IAdministrarTickets {
     /**
      * Constructor que inicializa el atributo de la clase.
      */
-    public FacadeAdministrarTickets() {
-        ctrlContactarAtnAlCliente = new CtrlAdministrarTickets();
+    public FacadeAdministrarTickets(CtrlAdministrarTickets ctrlAdministrarTickets) {
+        this.ctrlContactarAtnAlCliente = ctrlAdministrarTickets;
     }
 
     /**
@@ -55,7 +56,7 @@ public class FacadeAdministrarTickets implements IAdministrarTickets {
      * @return El ticket actualizado.
      */
     @Override
-    public TicketDTO enviarRespuesta(ObjectId folio, RespuestaDTO respuesta) {
+    public TicketDTO enviarRespuesta(ObjectId folio, RespuestaDTO respuesta) throws ObjetosNegocioException {
         return ctrlContactarAtnAlCliente.enviarRespuesta(folio, respuesta);
     }
 

@@ -17,6 +17,9 @@ import javax.swing.JOptionPane;
 //import excepciones.MostrarMapaException;
 import org.jxmapviewer.viewer.WaypointPainter;
 import excepciones.PresentacionException;
+import implementaciones.MapaBO;
+import implementaciones.MapaDAO;
+import mostrarMapa.CtrlMostrarMapa;
 import mostrarMapa.FacadeMostrarMapa;
 import mostrarMapa.IMostrarMapa;
 import utilidades.Validador;
@@ -46,7 +49,7 @@ public class FrmMapa extends javax.swing.JFrame {
         initComponents();
 
         this.usuario = usuario;
-        this.facadeMostrarMapa = new FacadeMostrarMapa();
+        this.facadeMostrarMapa = new FacadeMostrarMapa(new CtrlMostrarMapa(new MapaBO(new MapaDAO())));
         lblLinea.setVisible(false); // Escondemos el label donde sale la línea.
 
         // Mandamos a validar la sesión.

@@ -5,7 +5,6 @@ package implementaciones;
 
 import colecciones.Respuesta;
 import colecciones.Ticket;
-import colecciones.Usuario;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.eq;
@@ -14,6 +13,7 @@ import static com.mongodb.client.model.Filters.or;
 import com.mongodb.client.model.Updates;
 import conexion.Conexion;
 import conexion.IConexion;
+import excepciones.PersistenciaException;
 import interfaces.ITicketDAO;
 import java.util.ArrayList;
 import java.util.List;
@@ -104,7 +104,7 @@ public class TicketDAO implements ITicketDAO {
      * @return El ticket encontrado.
      */
     @Override
-    public Ticket obtenerTicket(ObjectId folio) {
+    public Ticket obtenerTicket(ObjectId folio) throws PersistenciaException {
         // Creamos la conexión con el servidor.
         MongoDatabase db = conexion.crearConexion();
         // Obtenemos la colección de tickets.
@@ -122,6 +122,10 @@ public class TicketDAO implements ITicketDAO {
          * que obtengamos lo guardamos en una variable.
          */
         Ticket ticket = coleccion.find(filtro).first();
+        
+        if (ticket == null) {
+            throw new PersistenciaException("No se encontró ningún ticket con ese folio");
+        }
 
         // Imprimimos lo que se hizo.
         logger.log(Level.INFO, "Se ha insertado un documento en la colección 'tickets'.");
@@ -137,7 +141,11 @@ public class TicketDAO implements ITicketDAO {
      * @param respuesta Respuesta a agregar.
      */
     @Override
-    public void agregarRespuesta(ObjectId folio, Respuesta respuesta) {
+    public void agregarRespuesta(ObjectId folio, Respuesta respuesta) throws PersistenciaException {
+        if (obtenerTicket(folio) == null) {
+            throw new PersistenciaException("No se encontró el folio del ticket.");
+        }
+
         // Creamos la conexión con el servidor.
         MongoDatabase db = conexion.crearConexion();
         // Obtenemos la colección de tickets.
@@ -188,7 +196,11 @@ public class TicketDAO implements ITicketDAO {
      * @param ticket Ticket a actualizar.
      */
     @Override
-    public void actualizarTicket(Ticket ticket) {
+    public void actualizarTicket(Ticket ticket) throws PersistenciaException {
+        if (obtenerTicket(ticket.getId()) == null) {
+            throw new PersistenciaException("No se encontró el folio del ticket.");
+        }
+        
         // Creamos la conexión con el servidor.
         MongoDatabase db = conexion.crearConexion();
         // Obtenemos la colección de tickets.

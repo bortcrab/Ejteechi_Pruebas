@@ -6,6 +6,7 @@ package administrarTickets;
 import dtos.RespuestaDTO;
 import dtos.TicketDTO;
 import dtos.UsuarioDTO;
+import excepciones.ObjetosNegocioException;
 import java.util.List;
 import org.bson.types.ObjectId;
 
@@ -38,5 +39,5 @@ public interface IAdministrarTickets {
      * @param respuesta Respuesta a enviar.
      * @return El ticket actualizado.
      */
-    public TicketDTO enviarRespuesta(ObjectId folio, RespuestaDTO respuesta);
+    public TicketDTO enviarRespuesta(ObjectId folio, RespuestaDTO respuesta) throws ObjetosNegocioException;
 }

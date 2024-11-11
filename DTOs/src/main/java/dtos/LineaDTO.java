@@ -33,6 +33,7 @@ public class LineaDTO {
      * @param ruta Ruta de la línea.
      */
     public LineaDTO(int numero, Set<Waypoint> paradas, RutaDTO ruta) {
+        this.numero = numero;
         this.paradas = paradas;
         this.ruta = ruta;
     }
