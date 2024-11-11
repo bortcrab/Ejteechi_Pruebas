@@ -46,7 +46,7 @@ public class CamionDAOTest {
      * Test of obtenerPorNumeroUnidad method, of class CamionDAO.
      */
     @Test
-    public void testObtenerPorNumeroUnidad() throws PersistenciaException {
+    public void testObtener_PorNumeroUnidad_ReturnSuccess() throws PersistenciaException {
         String numeroUnidadABuscar = "001";
         
         Camion resultado = camionDAO.obtenerPorNumUnidadCamion(numeroUnidadABuscar);
@@ -54,7 +54,7 @@ public class CamionDAOTest {
         assertEquals("001", resultado.getNumeroUnidad());
     }
     @Test
-    public void testObtenerPorNumeroUnidadQueNoExiste(){
+    public void testObtener_PorNumeroUnidadQueNoExiste_ReturnSuccess(){
         //Arrange
         String numeroUnidadABuscar = "077";
         
@@ -68,7 +68,7 @@ public class CamionDAOTest {
      * Este método para probarlo se tiene que cambiar los parametros de el act
      */
     @Test
-    public void testActualizarEstado() throws PersistenciaException {
+    public void testActualizar_Estado_ReturnSuccess() throws PersistenciaException {
         //Arrange
         Camion camion = camionDAO.obtenerPorNumUnidadCamion("001");
         String estadoMotor = camion.getEstadoMotor(); 
@@ -87,7 +87,7 @@ public class CamionDAOTest {
     }
     
     @Test
-    public void testActualizarEstadoMotor() throws PersistenciaException {
+    public void testActualizar_EstadoMotor_ReturnSuccess() throws PersistenciaException {
         //Arrange
         Camion camion = camionDAO.obtenerPorNumeroUnidad("002");
         String estadoOriginalMotor = camion.getEstadoMotor();
@@ -101,7 +101,7 @@ public class CamionDAOTest {
     }
     
     @Test
-    public void testActualizarEstadoLimpieza() throws PersistenciaException {
+    public void testActualizar_EstadoLimpieza_ReturnSuccess() throws PersistenciaException {
         //Arrange
         Camion camion = camionDAO.obtenerPorNumUnidadCamion("003");
         String estadoOriginalLimpieza = camion.getEstadoLimpieza();
@@ -117,7 +117,7 @@ public class CamionDAOTest {
     }
     
     @Test
-    public void testActualizarEstadoLlantas() throws PersistenciaException {
+    public void testActualizar_EstadoLlantas_ReturnSuccess() throws PersistenciaException {
         //Arrange
         Camion camion = camionDAO.obtenerPorNumeroUnidad("004");
         String estadoOriginalLlantas = camion.getEstadoLlantas();
@@ -132,7 +132,7 @@ public class CamionDAOTest {
         assertEquals(estadoMotor, camionResultado.getEstadoMotor());
     }
     @Test
-    public void testActualizarEstadoLuces() throws PersistenciaException {
+    public void testActualizar_EstadoLuces_ReturnSuccess() throws PersistenciaException {
         //Arrange
         Camion camion = camionDAO.obtenerPorNumeroUnidad("005");
         String estadoOriginalLuces = camion.getEstadoLuces();
@@ -152,7 +152,7 @@ public class CamionDAOTest {
      * Test of actualizarPrioridadYFechaMantenimiento method, of class CamionDAO.
      */
     @Test
-    public void testActualizarPrioridadYFechaMantenimientoAmbos() throws PersistenciaException {
+    public void testActualizar_Prioridad_Y_FechaMantenimientoAmbos_ReturnSuccess() throws PersistenciaException {
         Camion camion = camionDAO.obtenerPorNumeroUnidad("007");
         String nivelPrioridadOriginal = camion.getNivelPrioridad();
         Date fechaOriginal = camion.getFechaUltimoMantenimiento();
@@ -163,7 +163,7 @@ public class CamionDAOTest {
         assertNotEquals(fechaOriginal.getTime(), resultado.getFechaUltimoMantenimiento().getTime());
     }
     @Test
-    public void testActualizarPrioridad() throws PersistenciaException {
+    public void testActualizar_Prioridad_ReturnSuccess() throws PersistenciaException {
         Camion camion = camionDAO.obtenerPorNumeroUnidad("008");
         String nivelPrioridadOriginal = camion.getNivelPrioridad();
         Date fechaOriginal = camion.getFechaUltimoMantenimiento();
@@ -174,7 +174,7 @@ public class CamionDAOTest {
         assertEquals(fechaOriginal.getTime(), resultado.getFechaUltimoMantenimiento().getTime());
     }
     @Test
-    public void testActualizarUltimoMantenimiento() throws PersistenciaException {
+    public void testActualizar_UltimoMantenimiento_ReturnSuccess() throws PersistenciaException {
         Camion camion = camionDAO.obtenerPorNumeroUnidad("009");
         String nivelPrioridadOriginal = camion.getNivelPrioridad();
         Date fechaOriginal = camion.getFechaUltimoMantenimiento();

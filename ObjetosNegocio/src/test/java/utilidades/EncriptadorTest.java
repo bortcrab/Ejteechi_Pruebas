@@ -17,7 +17,7 @@ public class EncriptadorTest {
     }
     
     @Test
-    public void testEncriptarCadenaAlfanumerica() {
+    public void testEncriptar_CadenaAlfanumerica_ReturnSuccess() {
         // CP01: Encriptar cadena alfanumérica válida
         //Arrange
         String entrada = "Hola123";
@@ -29,7 +29,7 @@ public class EncriptadorTest {
     }
     
     @Test
-    public void testDesencriptarCadenaPrevia() throws Exception {
+    public void testDesencriptar_CadenaPrevia_ReturnSuccess() throws Exception {
         // CP02: Desencriptar cadena previamente encriptada
         //ARRANGE
         String entrada = "Hola123";
@@ -41,7 +41,7 @@ public class EncriptadorTest {
     }
     
     @Test
-    public void testEncriptarCadenaVacia() {
+    public void testEncriptar_CadenaVacia_ReturnSuccess() {
         // CP03: Encriptar cadena vacía
         //ARRANGE
         String entrada = "";
@@ -53,7 +53,7 @@ public class EncriptadorTest {
     
     
     @Test
-    public void testDesencriptarCadenaInvalida() throws Exception {
+    public void testDesencriptar_CadenaInvalida_ReturnSuccess() throws Exception {
         // CP06: Desencriptar cadena inválida
          // Arrange: Preparamos los datos de entrada
         String entrada = "EstoNoEsUnaC@denaEncriptada";
@@ -69,7 +69,7 @@ public class EncriptadorTest {
     
     
     @Test
-    public void testCicloCompletoEncriptacionDesencriptacion() throws Exception {
+    public void testCicloCompleto_Encriptacion_Desencriptacion_ReturnSuccess() throws Exception {
         // CP08: Ciclo completo de encriptación-desencriptación
         //ARRANGE
         String entrada = "TestCompleto123!@#";
@@ -83,7 +83,7 @@ public class EncriptadorTest {
     }
     
     @Test
-    public void testMultiplesEncriptacionesConsistentes() {
+    public void testMultiples_EncriptacionesConsistentes_ReturnSuccess() {
         // Prueba adicional: Verificar que múltiples encriptaciones del mismo valor son consistentes
         //Arrange
         String entrada = "PruebaConsistencia";
@@ -97,8 +97,8 @@ public class EncriptadorTest {
     }
     
     @Test
-    public void verificacionQueGenereLaMismaLlave(){
-        //Arrange
+    public void verificacion_QueGenereLaMismaLlave_ReturnSuccess(){
+        //Arrange y act
         String valorEsperado = Encriptador.generarLlave().toString();
         String resultado = Encriptador.generarLlave().toString();
         

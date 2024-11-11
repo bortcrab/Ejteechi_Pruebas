@@ -50,7 +50,7 @@ public class QuejaDAOTest {
      * Test of insertarQueja method, of class QuejaDAO.
      */
     @Test
-    public void testInsertarQuejaNormal() throws Exception {
+    public void testInsertar_QuejaNormal_ReturnSuccess() throws Exception {
         //Arrange
         Queja quejaInsertar = new Queja(auxId1, "America", fechaPlantilla1, "Comentado", false, true, auxId2);
         
@@ -63,7 +63,7 @@ public class QuejaDAOTest {
         
     }
     @Test
-    public void testInsertarQuejaComoAnonimo() throws Exception {
+    public void testInsertar_QuejaComoAnonimo_ReturnSuccess() throws Exception {
         //Arrange
         Queja quejaInsertar = new Queja(auxId1, "America", fechaPlantilla1, "Comentado", true, true, auxId2);
         
@@ -80,7 +80,7 @@ public class QuejaDAOTest {
      * Test of obtenerQuejasPorTipo method, of class QuejaDAO.
      */
     @Test
-    public void testObtenerQuejasPorTipo() throws Exception {
+    public void testObtener_Quejas_PorTipo_ReturnSuccess() throws Exception {
         //Arrange
         quejaDAO.insertarQueja(new Queja("Tipo1"));
         quejaDAO.insertarQueja(new Queja("Tipo1"));
@@ -96,7 +96,7 @@ public class QuejaDAOTest {
         } 
     }
     @Test
-    public void testObtenerQuejasPorTipoInexistente() throws Exception {
+    public void testObtener_Quejas_PorTipo_Inexistente_ReturnSuccess() throws Exception {
         //Arrange
         quejaDAO.insertarQueja(new Queja("Tipo1"));
         quejaDAO.insertarQueja(new Queja("Tipo2"));
@@ -115,7 +115,7 @@ public class QuejaDAOTest {
      * Test of obtenerTodasLasQuejas method, of class QuejaDAO.
      */
     @Test
-    public void testObtenerTodasLasQuejas() throws Exception {
+    public void testObtener_TodasLasQuejas_ReturnSuccess() throws Exception {
         //Arrange
         quejaDAO.insertarQueja(new Queja("Tipo1"));
         quejaDAO.insertarQueja(new Queja("Tipo1"));
@@ -136,7 +136,7 @@ public class QuejaDAOTest {
      * Test of obtenerQuejasPorEstadoYAnonimato method, of class QuejaDAO.
      */
     @Test
-    public void testObtenerQuejasPorEstadoYAnonimato() throws Exception {
+    public void testObtener_QuejasPorEstadoYAnonimato_ReturnSuccess() throws Exception {
         //Arrange
         quejaDAO.insertarQueja(new Queja("Tipo1", "queja 1", true));
         quejaDAO.insertarQueja(new Queja("Tipo1", "queja 2", true));
@@ -157,7 +157,7 @@ public class QuejaDAOTest {
      * Test of confirmarLectura method, of class QuejaDAO.
      */
     @Test
-    public void testConfirmarLectura() throws Exception {
+    public void testConfirmarLectura_ReturnSuccess() throws Exception {
         //Arrange
        quejaDAO.insertarQueja(new Queja(auxId1,"Tipo1", "queja 1", false));
         
@@ -171,7 +171,7 @@ public class QuejaDAOTest {
     
     
     @Test
-    public void testObtenerQuejaInexistente(){
+    public void testObtener_QuejaInexistente_ReturnSuccess(){
         //Arrange
         Queja quejaSinId = new Queja();
         //Act y assert

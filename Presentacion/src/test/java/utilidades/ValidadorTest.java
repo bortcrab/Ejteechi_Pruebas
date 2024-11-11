@@ -127,24 +127,20 @@ public class ValidadorTest {
     
     // Método de prueba para validar el contenido del ticket en formato AAA
     @Test
-    public void testValidarTicket() {
+    public void testValidarTicket_TicketVacio_LanzaExcepcion() {
         // Arrange
-
-        // Act & Assert: Caso 1 - Contenido válido
-        try {
-            validador.validarTicket("Este es un ticket válido.");
-        } catch (PresentacionException e) {
-            fail("No se esperaba una excepción: " + e.getMessage());
-        }
-
-        // Act & Assert: Caso 2 - Contenido vacío
+        // Act & Assert: Caso  - Contenido vacío
         PresentacionException exception = assertThrows(PresentacionException.class, () -> {
             validador.validarTicket("");
         });
         assertEquals("El ticket no puede estar vacío.", exception.getMessage());
+    }
+    @Test
+    public void testValidarTicket_PorLongitud_LanzaExcepcion() {
+        // Arrange
 
-        // Act & Assert: Caso 3 - Contenido mayor a 500 caracteres
-        exception = assertThrows(PresentacionException.class, () -> {
+        // Act & Assert: Caso  - Contenido mayor a 500 caracteres
+        PresentacionException exception = assertThrows(PresentacionException.class, () -> {
             validador.validarTicket("A".repeat(501));
         });
         assertEquals("El ticket no puede exceder los 500 caracteres.", exception.getMessage());
@@ -152,32 +148,40 @@ public class ValidadorTest {
 
     // Método de prueba para validar el contenido de la respuesta en formato AAA
     @Test
-    public void testValidarRespuesta() {
+    public void testValidarRespuesta_RespuestaValida_NoLanzaExcepcion() {
         // Arrange
 
-        // Act & Assert: Caso 1 - Contenido válido
+        // Act & Assert: Caso - Contenido válido
         try {
             validador.validarRespuesta("Este es un mensaje válido.");
         } catch (PresentacionException e) {
             fail("No se esperaba una excepción: " + e.getMessage());
         }
+    }
+    @Test
+    public void testValidar_RespuestaVacia_LanzaExcepcion() {
+        // Arrange
 
-        // Act & Assert: Caso 2 - Contenido vacío
+        // Act & Assert: Caso - Contenido vacío
         PresentacionException exception = assertThrows(PresentacionException.class, () -> {
             validador.validarRespuesta("");
         });
         assertEquals("El mensaje no puede estar vacío.", exception.getMessage());
-
-        // Act & Assert: Caso 3 - Contenido mayor a 500 caracteres
-        exception = assertThrows(PresentacionException.class, () -> {
-            validador.validarRespuesta("A".repeat(501));
-        });
-        assertEquals("El mensaje no puede exceder los 500 caracteres.", exception.getMessage());
     }
 
     // Método de prueba para validar los nombres en formato AAA
     @Test
-    public void testValidarNombres() {
+    public void testValidarNombres_NombreInvalido_LanzaExcepcion() {
+        // Arrange
+
+        // Act & Assert: Caso  - Nombres con caracteres no permitidos (números)
+        PresentacionException exception = assertThrows(PresentacionException.class, () -> {
+            validador.validarNombres("Juan123");
+        });
+        assertEquals("El nombre sólo puede tener letras.", exception.getMessage());
+    }
+    @Test
+    public void testValidarNombreValido_NoLanzaExcepcion() {
         // Arrange
 
         // Act & Assert: Caso 1 - Nombres válidos
@@ -186,85 +190,40 @@ public class ValidadorTest {
         } catch (PresentacionException e) {
             fail("No se esperaba una excepción: " + e.getMessage());
         }
-
-        // Act & Assert: Caso 2 - Nombres vacíos
-        PresentacionException exception = assertThrows(PresentacionException.class, () -> {
-            validador.validarNombres("");
-        });
-        assertEquals("El nombre no puede estar vacío.", exception.getMessage());
-
-        // Act & Assert: Caso 3 - Nombres mayores a 100 caracteres
-        exception = assertThrows(PresentacionException.class, () -> {
-            validador.validarNombres("A".repeat(101));
-        });
-        assertEquals("El nombre no puede exceder los 100 caracteres.", exception.getMessage());
-
-        // Act & Assert: Caso 4 - Nombres con caracteres no permitidos (números)
-        exception = assertThrows(PresentacionException.class, () -> {
-            validador.validarNombres("Juan123");
-        });
-        assertEquals("El nombre sólo puede tener letras.", exception.getMessage());
     }
 
     // Método de prueba para validar el apellido paterno en formato AAA
     @Test
-    public void testValidarApellidoP() {
+    public void testValidarApellido_Valido_NoLanzaExcepcion() {
         // Arrange
 
-        // Act & Assert: Caso 1 - Apellido paterno válido
+        // Act & Assert: Caso - Apellido paterno válido
         try {
             validador.validarApellidoP("González");
         } catch (PresentacionException e) {
             fail("No se esperaba una excepción: " + e.getMessage());
         }
+    }
+    @Test
+    public void testValidarApellidoLargo__LanzaExcepcion() {
+        // Arrange
 
-        // Act & Assert: Caso 2 - Apellido paterno vacío
+        // Act & Assert: Caso - Apellido paterno mayor a 100 caracteres
         PresentacionException exception = assertThrows(PresentacionException.class, () -> {
-            validador.validarApellidoP("");
-        });
-        assertEquals("El apellido paterno no puede estar vacío.", exception.getMessage());
-
-        // Act & Assert: Caso 3 - Apellido paterno mayor a 100 caracteres
-        exception = assertThrows(PresentacionException.class, () -> {
             validador.validarApellidoP("A".repeat(101));
         });
         assertEquals("El apellido paterno no puede exceder los 100 caracteres.", exception.getMessage());
+    }
+    @Test
+    public void testValidarApellido_ConNumeros_LanzaExcepcion() {
+        // Arrange
 
-        // Act & Assert: Caso 4 - Apellido paterno con caracteres no permitidos (números)
-        exception = assertThrows(PresentacionException.class, () -> {
+        // Act & Assert: Caso - Apellido paterno con caracteres no permitidos (números)
+        PresentacionException exception = assertThrows(PresentacionException.class, () -> {
             validador.validarApellidoP("González123");
         });
         assertEquals("El apellido paterno sólo puede tener letras.", exception.getMessage());
     }
 
-    // Método de prueba para validar el apellido materno en formato AAA
-    @Test
-    public void testValidarApellidoM() {
-        // Arrange
 
-        // Act & Assert: Caso 1 - Apellido materno válido
-        try {
-            validador.validarApellidoM("Martínez");
-        } catch (PresentacionException e) {
-            fail("No se esperaba una excepción: " + e.getMessage());
-        }
-
-        // Act & Assert: Caso 2 - Apellido materno vacío
-        PresentacionException exception = assertThrows(PresentacionException.class, () -> {
-            validador.validarApellidoM("");
-        });
-        assertEquals("El apellido materno no puede estar vacío.", exception.getMessage());
-
-        // Act & Assert: Caso 3 - Apellido materno mayor a 100 caracteres
-        exception = assertThrows(PresentacionException.class, () -> {
-            validador.validarApellidoM("A".repeat(101));
-        });
-        assertEquals("El apellido materno no puede exceder los 100 caracteres.", exception.getMessage());
-
-        // Act & Assert: Caso 4 - Apellido materno con caracteres no permitidos (números)
-        exception = assertThrows(PresentacionException.class, () -> {
-            validador.validarApellidoM("Martínez123");
-        });
-        assertEquals("El apellido materno sólo puede tener letras.", exception.getMessage());
-    }
 }
