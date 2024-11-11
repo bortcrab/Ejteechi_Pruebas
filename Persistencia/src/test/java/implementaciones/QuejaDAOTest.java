@@ -1,10 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
- */
 package implementaciones;
 
 import colecciones.Queja;
+import excepciones.PersistenciaException;
+import java.util.Date;
 import java.util.List;
 import org.bson.types.ObjectId;
 import org.junit.jupiter.api.AfterEach;
@@ -20,12 +18,18 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class QuejaDAOTest {
     private static QuejaDAO quejaDAO;
+    private Date fechaPlantilla1 = new Date(1732406400000L);//Fecha con el 24 de noviembre de 2024
+    private Date fechaPlantilla2 = new Date(1730419200000L);//Fecha con el 01 de noviembre de 2024
+    private ObjectId auxId1= new ObjectId("672c1501e23c507d2981e304");
+    private ObjectId auxId2= new ObjectId("777c1501e23c507d2981e304");
+    private ObjectId auxId3= new ObjectId("111c1501e23c507d2981e555");
+    
     public QuejaDAOTest() {
     }
     
     @BeforeAll
     public static void setUpClass() {
-        quejaDAO = new QuejaDAO();
+        
     }
     
     @AfterAll
@@ -34,6 +38,7 @@ public class QuejaDAOTest {
     
     @BeforeEach
     public void setUp() {
+        quejaDAO = new QuejaDAO();
     }
     
     @AfterEach
@@ -46,9 +51,29 @@ public class QuejaDAOTest {
      */
     @Test
     public void testInsertarQuejaNormal() throws Exception {
-        Queja queja = quejaDAO.buscarQuejaPorId(new Queja(new ObjectId("672c1501e23c507d2981e304")));
+        //Arrange
+        Queja quejaInsertar = new Queja(auxId1, "America", fechaPlantilla1, "Comentado", false, true, auxId2);
         
-        System.out.println(queja);
+        //Act
+        quejaDAO.insertarQueja(quejaInsertar);
+        Queja resultado = quejaDAO.buscarQuejaPorId(new Queja(auxId1));
+        
+        //Assert
+        assertEquals(resultado.getId().toHexString(),auxId1.toHexString());
+        
+    }
+    @Test
+    public void testInsertarQuejaComoAnonimo() throws Exception {
+        //Arrange
+        Queja quejaInsertar = new Queja(auxId1, "America", fechaPlantilla1, "Comentado", true, true, auxId2);
+        
+        //Act
+        quejaDAO.insertarQueja(quejaInsertar);
+        Queja resultado = quejaDAO.buscarQuejaPorId(new Queja(auxId1));
+        
+        //Assert
+        assertEquals(resultado.getId().toHexString(),auxId1.toHexString());
+        assertNull(resultado.getIdCliente());
     }
 
     /**
@@ -56,28 +81,55 @@ public class QuejaDAOTest {
      */
     @Test
     public void testObtenerQuejasPorTipo() throws Exception {
-        System.out.println("obtenerQuejasPorTipo");
-        String tipo = "";
-        QuejaDAO instance = new QuejaDAO();
-        List<Queja> expResult = null;
-        List<Queja> result = instance.obtenerQuejasPorTipo(tipo);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //Arrange
+        quejaDAO.insertarQueja(new Queja("Tipo1"));
+        quejaDAO.insertarQueja(new Queja("Tipo1"));
+        quejaDAO.insertarQueja(new Queja("Tipo2"));
+        
+        //Act
+        List<Queja> resultados = quejaDAO.obtenerQuejasPorTipo("Tipo1");
+        
+        //Assert
+        assertEquals(2,resultados.size());
+        for (Queja resultado : resultados) {
+            assertEquals("Tipo1",resultado.getTipo());
+        } 
     }
+    @Test
+    public void testObtenerQuejasPorTipoInexistente() throws Exception {
+        //Arrange
+        quejaDAO.insertarQueja(new Queja("Tipo1"));
+        quejaDAO.insertarQueja(new Queja("Tipo2"));
+        quejaDAO.insertarQueja(new Queja("Tipo3"));
+        
+        //Act
+        List<Queja> resultados = quejaDAO.obtenerQuejasPorTipo("Tipo4");
+        
+        //Assert
+        assertEquals(0,resultados.size());
+    }
+    
+    
 
     /**
      * Test of obtenerTodasLasQuejas method, of class QuejaDAO.
      */
     @Test
     public void testObtenerTodasLasQuejas() throws Exception {
-        System.out.println("obtenerTodasLasQuejas");
-        QuejaDAO instance = new QuejaDAO();
-        List<Queja> expResult = null;
-        List<Queja> result = instance.obtenerTodasLasQuejas();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //Arrange
+        quejaDAO.insertarQueja(new Queja("Tipo1"));
+        quejaDAO.insertarQueja(new Queja("Tipo1"));
+        quejaDAO.insertarQueja(new Queja("Tipo2"));
+        quejaDAO.insertarQueja(new Queja("Tipo3"));
+        
+        //Act
+        List<Queja> resultados = quejaDAO.obtenerTodasLasQuejas();
+        
+        //Assert
+        assertEquals(4,resultados.size());
+        for (Queja resultado : resultados) {
+            assertNotNull(resultado);
+        } 
     }
 
     /**
@@ -85,14 +137,20 @@ public class QuejaDAOTest {
      */
     @Test
     public void testObtenerQuejasPorEstadoYAnonimato() throws Exception {
-        System.out.println("obtenerQuejasPorEstadoYAnonimato");
-        boolean leido = false;
-        QuejaDAO instance = new QuejaDAO();
-        List<Queja> expResult = null;
-        List<Queja> result = instance.obtenerQuejasPorEstadoYAnonimato(leido);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //Arrange
+        quejaDAO.insertarQueja(new Queja("Tipo1", "queja 1", true));
+        quejaDAO.insertarQueja(new Queja("Tipo1", "queja 2", true));
+        quejaDAO.insertarQueja(new Queja("Tipo3", "queja 3", false));
+        quejaDAO.insertarQueja(new Queja("Tipo3", "queja 4", false));
+        quejaDAO.insertarQueja(new Queja("Tipo2", "queja 5", true));
+        
+        //Act
+        List<Queja> resultado = quejaDAO.obtenerQuejasPorEstadoYAnonimato(true);
+        List<Queja> resultado2 = quejaDAO.obtenerQuejasPorEstadoYAnonimato(false);
+        
+        //Assert
+        assertEquals(3, resultado.size());
+        assertEquals(2, resultado2.size());
     }
 
     /**
@@ -100,14 +158,26 @@ public class QuejaDAOTest {
      */
     @Test
     public void testConfirmarLectura() throws Exception {
-        System.out.println("confirmarLectura");
-        Queja queja = null;
-        QuejaDAO instance = new QuejaDAO();
-        Queja expResult = null;
-        Queja result = instance.confirmarLectura(queja);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //Arrange
+       quejaDAO.insertarQueja(new Queja(auxId1,"Tipo1", "queja 1", false));
+        
+       //Act
+        quejaDAO.confirmarLectura(new Queja(auxId1));
+        Queja resultado = quejaDAO.buscarQuejaPorId(new Queja(auxId1));
+        
+        //Assert
+        assertTrue(resultado.isLeido());
     }
     
+    
+    @Test
+    public void testObtenerQuejaInexistente(){
+        //Arrange
+        Queja quejaSinId = new Queja();
+        //Act y assert
+        assertThrows(PersistenciaException.class, () -> {
+            quejaDAO.buscarQuejaPorId(quejaSinId);
+        });
+        
+    }
 }

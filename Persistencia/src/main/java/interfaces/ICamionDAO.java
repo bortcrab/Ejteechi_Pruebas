@@ -5,6 +5,7 @@
 package interfaces;
 
 import colecciones.Camion;
+import excepciones.PersistenciaException;
 import java.util.Date;
 
 /**
@@ -22,7 +23,7 @@ public interface ICamionDAO {
  * @param numeroUnidad El número de unidad del camión que se desea obtener.
  * @return Un objeto de tipo Camion que corresponde al número de unidad especificado, o null si no se encuentra.
  */
-    Camion obtenerPorNumeroUnidad(String numeroUnidad);
+    Camion obtenerPorNumeroUnidad(String numeroUnidad) ;
 
     /**
  * Actualiza el estado de un camión identificado por su número de unidad.

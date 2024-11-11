@@ -1,35 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
- */
 package implementaciones;
 
 import colecciones.Queja;
 import dtos.QuejaDTO;
 import interfaces.IQuejaDAO;
-import interfaces.IUsuarioDAO;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import org.bson.types.ObjectId;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import static org.mockito.ArgumentMatchers.any;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
+import static org.mockito.ArgumentMatchers.refEq;
+
 import org.mockito.junit.jupiter.MockitoExtension;
-import utilidades.Encriptador;
 
 /**
  *
@@ -37,14 +29,13 @@ import utilidades.Encriptador;
  */
 @ExtendWith(MockitoExtension.class)
 public class QuejaBOTest {
-    
+
     public QuejaBOTest() {
     }
     private Date fechaPlantilla1 = new Date(1732406400000L);//Fecha con el 24 de noviembre de 2024
     private Date fechaPlantilla2 = new Date(1730419200000L);//Fecha con el 01 de noviembre de 2024
     @Mock
     private IQuejaDAO quejaDAO;
-
 
     @InjectMocks
     private QuejaBO quejaBO;
@@ -57,22 +48,20 @@ public class QuejaBOTest {
     /**
      * Test of enviarQueja method, of class QuejaBO.
      */
-
     @Test
     public void testEnviarQuejaExito() throws Exception {
-        // Arrange
-        QuejaDTO quejaDTO = new QuejaDTO("Nueva queja");
-        Queja queja = new Queja("Nueva queja");
-
-        // Configura el mock para verificar la llamada sin devolver nada (void method)
-        doNothing().when(quejaDAO).insertarQueja(queja);
-
-        // Act
+        QuejaDTO quejaDTO = new QuejaDTO();
+        quejaDTO.setDescripcion("Queja de prueba");
+        quejaDTO.setIdCliente(new ObjectId());
+        // Llamamos al método
         QuejaDTO resultado = quejaBO.enviarQueja(quejaDTO);
 
-        // Assert
-        assertEquals(quejaDTO, resultado); // Verifica que el DTO retornado es el mismo que el de entrada
-        verify(quejaDAO, times(1)).insertarQueja(any(Queja.class)); // Verifica que insertarQueja fue llamado
+        // Verificamos que se haya llamado el método insertarQueja en el DAO usando refEq para comparar contenido
+        verify(quejaDAO).insertarQueja(refEq(quejaBO.convertirDTOToQueja(quejaDTO)));
+
+        // Verificamos que el resultado sea el mismo DTO que enviamos
+        assertEquals(quejaDTO, resultado, "El resultado debería ser el mismo objeto quejaDTO enviado");
+
     }
 
     /**
@@ -81,9 +70,9 @@ public class QuejaBOTest {
     @Test
     public void testConvertirQuejaToDTO() {
         //ARRANGE
-        Queja quejaConvertir = new Queja(new ObjectId("64a1bc7e9f4b8d3c5a6f2e3a"),"Leida", fechaPlantilla1, "Sube mucho el lag", true, true, new ObjectId("72a1bc7e9f4b8d3c5a6f2e3a"));
-        QuejaDTO quejaEsperada = new QuejaDTO(new ObjectId("64a1bc7e9f4b8d3c5a6f2e3a"),"Leida", fechaPlantilla1, "Sube mucho el lag", true, true, new ObjectId("72a1bc7e9f4b8d3c5a6f2e3a"));
-        
+        Queja quejaConvertir = new Queja(new ObjectId("64a1bc7e9f4b8d3c5a6f2e3a"), "Leida", fechaPlantilla1, "Sube mucho el lag", true, true, new ObjectId("72a1bc7e9f4b8d3c5a6f2e3a"));
+        QuejaDTO quejaEsperada = new QuejaDTO(new ObjectId("64a1bc7e9f4b8d3c5a6f2e3a"), "Leida", fechaPlantilla1, "Sube mucho el lag", true, true, new ObjectId("72a1bc7e9f4b8d3c5a6f2e3a"));
+
         //ACT
         QuejaDTO resultado = QuejaBO.convertirQuejaToDTO(quejaConvertir);
         //ASSERT
@@ -104,7 +93,7 @@ public class QuejaBOTest {
         quejaDTO.setDescripcion("hola123");
         quejaDTO.setAnonimo(false);
         quejaDTO.setLeido(true);
-        
+
         //ACT
         Queja resultado = QuejaBO.convertirDTOToQueja(quejaDTO);
         //ASSERT
@@ -112,7 +101,6 @@ public class QuejaBOTest {
         assertFalse(resultado.isAnonimo());
         assertTrue(resultado.isLeido());
     }
-
 
     @Test
     public void testObtenerQuejasSeleccionElijeUno() throws Exception {
@@ -128,7 +116,7 @@ public class QuejaBOTest {
         assertEquals("Queja1", resultado.get(0).getTipoQueja());
         verify(quejaDAO, times(1)).obtenerTodasLasQuejas();
     }
-    
+
     @Test
     public void testObtenerQuejasSeleccionNoLeidos() throws Exception {
         // Arrange
@@ -180,7 +168,7 @@ public class QuejaBOTest {
      */
     @Test
     public void testConfirmarLectura() throws Exception {
-         // Arrange
+        // Arrange
         Queja quejaEntrada = new Queja("Alo");
         Queja quejaModificada = new Queja("Modificada");
         QuejaDTO quejaDTOEntrada = new QuejaDTO("Alo"); // Crear el DTO inicial con el valor esperado
@@ -195,5 +183,5 @@ public class QuejaBOTest {
         // Assert
         assertEquals(quejaDTOModificada.getTipoQueja(), resultado.getTipoQueja()); // Compara solo el nombre o el atributo relevante
     }
-    
+
 }

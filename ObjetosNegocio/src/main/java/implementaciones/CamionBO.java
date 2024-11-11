@@ -3,6 +3,7 @@ package implementaciones;
 import colecciones.Camion;
 import dtos.CamionDTO;
 import excepciones.ObjetosNegocioException;
+import excepciones.PersistenciaException;
 import interfaces.ICamionBO;
 import interfaces.ICamionDAO;
 import java.util.Date;
@@ -53,14 +54,14 @@ public class CamionBO implements ICamionBO {
      * especificado.
      * @throws ObjetosNegocioException Si ocurre un error al obtener la unidad.
      */
-    @Override
-    public CamionDTO obtenerPorNumeroUnidad(String numeroUnidad) throws ObjetosNegocioException {
-        camionDAO.obtenerPorNumeroUnidad(numeroUnidad);
-        if (camionDAO.obtenerPorNumeroUnidad(numeroUnidad) == null) {
-            throw new ObjetosNegocioException("Ocurrió un error al obtener la unidad.");
-        }
-        return CamionADTO(camionDAO.obtenerPorNumeroUnidad(numeroUnidad));
+@Override
+public CamionDTO obtenerPorNumeroUnidad(String numeroUnidad) throws ObjetosNegocioException {
+    Camion camion = camionDAO.obtenerPorNumeroUnidad(numeroUnidad);
+    if (camion == null) {
+        throw new ObjetosNegocioException("Ocurrió un error al obtener la unidad.");
     }
+    return CamionADTO(camion);
+}
 
     /**
      * Actualiza la prioridad y la fecha de mantenimiento de un camión

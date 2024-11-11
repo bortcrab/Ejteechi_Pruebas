@@ -40,11 +40,14 @@ public class QuejaDAO implements IQuejaDAO {
         }
         coleccion.insertOne(queja);
         logger.log(Level.INFO, "Se ha insertado la queja en la colección 'quejas'.");
-        conexion.cerrarConexion();
+        
     }
 
     @Override
     public List<Queja> obtenerQuejasPorTipo(String tipo) throws PersistenciaException {
+        MongoDatabase db = conexion.crearConexion();
+        // Obtenemos la colección de usuarios.
+        coleccion = db.getCollection("quejas", Queja.class);
         List<Queja> quejasPorTipo = new ArrayList<>();
         try {
             for (Queja queja : coleccion.find(eq("tipo", tipo))) {
@@ -59,6 +62,9 @@ public class QuejaDAO implements IQuejaDAO {
 
     @Override
     public List<Queja> obtenerTodasLasQuejas() throws PersistenciaException {
+        MongoDatabase db = conexion.crearConexion();
+        // Obtenemos la colección de usuarios.
+        coleccion = db.getCollection("quejas", Queja.class);
         List<Queja> todasLasQuejas = new ArrayList<>();
         try {
             for (Queja queja : coleccion.find()) {
@@ -73,6 +79,9 @@ public class QuejaDAO implements IQuejaDAO {
 
     @Override
     public List<Queja> obtenerQuejasPorEstadoYAnonimato(boolean leido) throws PersistenciaException {
+        MongoDatabase db = conexion.crearConexion();
+        // Obtenemos la colección de usuarios.
+        coleccion = db.getCollection("quejas", Queja.class);
         List<Queja> quejasFiltradas = new ArrayList<>();
         try {
             Bson filtroLeido;
@@ -94,6 +103,9 @@ public class QuejaDAO implements IQuejaDAO {
 
     @Override
     public Queja confirmarLectura(Queja queja) throws PersistenciaException {
+        MongoDatabase db = conexion.crearConexion();
+        // Obtenemos la colección de usuarios.
+        coleccion = db.getCollection("quejas", Queja.class);
         try {
             queja.setLeido(true);
 
@@ -109,13 +121,15 @@ public class QuejaDAO implements IQuejaDAO {
         return queja;
     }
     
-    public Queja buscarQuejaPorId(Queja aux) throws PersistenciaException {
+        public Queja buscarQuejaPorId(Queja aux) throws PersistenciaException {
+        db = conexion.crearConexion();
+        coleccion = db.getCollection("quejas", Queja.class);
         try {
             // Realiza la búsqueda de la queja por su ID
             Queja queja = coleccion.find(eq("_id", aux.getId())).first();
             
             if (queja == null) {
-                logger.log(Level.INFO, "No se encontró una queja con el ID proporcionado: " + aux.getId().toHexString());
+                throw new PersistenciaException("No hay ninguna queja con ese ID");
             } else {
                 logger.log(Level.INFO, "Se encontró una queja con el ID: " + aux.getId().toHexString());
             }

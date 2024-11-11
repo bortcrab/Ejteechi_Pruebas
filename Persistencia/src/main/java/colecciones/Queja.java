@@ -32,6 +32,19 @@ public class Queja {
     public Queja(String tipo) {
         this.tipo = tipo;
     }
+
+    public Queja(String tipo, String comentario, boolean leido) {
+        this.tipo = tipo;
+        this.comentario = comentario;
+        this.leido = leido;
+    }
+
+    public Queja(ObjectId _id, String tipo, String comentario, boolean leido) {
+        this._id = _id;
+        this.tipo = tipo;
+        this.comentario = comentario;
+        this.leido = leido;
+    }
     
     
 

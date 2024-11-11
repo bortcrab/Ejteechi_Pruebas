@@ -85,10 +85,24 @@ public class EncriptadorTest {
     @Test
     public void testMultiplesEncriptacionesConsistentes() {
         // Prueba adicional: Verificar que múltiples encriptaciones del mismo valor son consistentes
+        //Arrange
         String entrada = "PruebaConsistencia";
+        
+        //Act
         String encriptado1 = encriptador.encriptar(entrada);
         String encriptado2 = encriptador.encriptar(entrada);
         
+        //Assert
         assertEquals(encriptado1, encriptado2);
+    }
+    
+    @Test
+    public void verificacionQueGenereLaMismaLlave(){
+        //Arrange
+        String valorEsperado = Encriptador.generarLlave().toString();
+        String resultado = Encriptador.generarLlave().toString();
+        
+        //Assert
+        assertEquals(valorEsperado, resultado);
     }
 }

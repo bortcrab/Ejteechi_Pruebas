@@ -61,7 +61,7 @@ public class Encriptador {
      *
      * @return La llave secreta.
      */
-    private static SecretKeySpec generarLlave() {
+    public static SecretKeySpec generarLlave() {
         return new SecretKeySpec(LLAVE.getBytes(), ALGORITMO);
     }
     

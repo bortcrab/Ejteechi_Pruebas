@@ -26,6 +26,15 @@ public class Camion {
     public Camion() {
     }
 
+    public Camion(String numeroUnidad, String estadoMotor, Date fechaUltimoMantenimiento, String nivelPrioridad) {
+        this.numeroUnidad = numeroUnidad;
+        this.estadoMotor = estadoMotor;
+        this.fechaUltimoMantenimiento = fechaUltimoMantenimiento;
+        this.nivelPrioridad = nivelPrioridad;
+    }
+
+    
+    
     /**
      * Obtiene el número de unidad del camión.
      *
@@ -157,5 +166,10 @@ public class Camion {
      */
     public void setNivelPrioridad(String nivelPrioridad) {
         this.nivelPrioridad = nivelPrioridad;
+    }
+
+    @Override
+    public String toString() {
+        return "Camion{" + "numeroUnidad=" + numeroUnidad + ", estadoMotor=" + estadoMotor + ", estadoLimpieza=" + estadoLimpieza + ", estadoLlantas=" + estadoLlantas + ", estadoLuces=" + estadoLuces + ", fechaUltimoMantenimiento=" + fechaUltimoMantenimiento + ", nivelPrioridad=" + nivelPrioridad + '}';
     }
 }
