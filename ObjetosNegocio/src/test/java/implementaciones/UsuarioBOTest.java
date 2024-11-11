@@ -6,6 +6,7 @@ package implementaciones;
 
 import colecciones.Usuario;
 import dtos.UsuarioDTO;
+import excepciones.ObjetosNegocioException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -44,18 +45,22 @@ public class UsuarioBOTest {
     }
 
     @Test
-    public void agregarUsuario_ClienteCorreoExistente_ReturnFail() throws Exception {
+    public void agregarUsuario_ClienteCorreoExistente_ThrowException() throws Exception {
         // ARRANGE
         UsuarioDTO cliente1 = new UsuarioDTO("Diego", "Valenzuela", "Parra", "Prueba@gmail.com", "Prueba123", "cliente");
         UsuarioDTO cliente2 = new UsuarioDTO("José Karim", "Franco", "Valencia", "Prueba@gmail.com", "Prueba321", "cliente");
         usuarioBO.agregarUsuario(cliente1);
-        UsuarioDTO resultado;
+        boolean excepcion = false;
 
         // ACT
-        resultado = usuarioBO.agregarUsuario(cliente2);
+        try {
+            usuarioBO.agregarUsuario(cliente2);
+        } catch (ObjetosNegocioException ex) {
+            excepcion = true;
+        }
 
         // ASSERT
-        assertNotNull(resultado);
+        assertTrue(excepcion);
     }
 
     @Test
@@ -76,35 +81,41 @@ public class UsuarioBOTest {
     }
 
     @Test
-    public void agregarUsuario_EmpleadoCurpExistente_ReturnFail() throws Exception {
+    public void agregarUsuario_EmpleadoCurpExistente_ThrowException() throws Exception {
         // ARRANGE
         UsuarioDTO empleado1 = new UsuarioDTO("Diego", "Valenzuela", "Parra", "0123456789", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "diego@gmail.com", "Prueba123", "GERE");
         usuarioBO.agregarUsuario(empleado1);
-
         UsuarioDTO empleado2 = new UsuarioDTO("José Karim", "Franco", "Valencia", "9876543210", "JKFV040112HSRLR1W4", "VAPD040603TQ1", "karim@gmail.com", "Prueba321", "RRHH");
-        UsuarioDTO resultado;
+        boolean excepcion = false;
 
         // ACT
-        resultado = usuarioBO.agregarUsuario(empleado2);
+        try {
+            usuarioBO.agregarUsuario(empleado2);
+        } catch (ObjetosNegocioException ex) {
+            excepcion = true;
+        }
 
         // ASSERT
-        assertNotNull(resultado);
+        assertTrue(excepcion);
     }
 
     @Test
-    public void agregarUsuario_EmpleadoRfcExistente_ReturnFail() throws Exception {
+    public void agregarUsuario_EmpleadoRfcExistente_ThrowException() throws Exception {
         // ARRANGE
         UsuarioDTO empleado1 = new UsuarioDTO("Diego", "Valenzuela", "Parra", "0123456789", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "diego@gmail.com", "Prueba123", "GERE");
         usuarioBO.agregarUsuario(empleado1);
-
         UsuarioDTO empleado2 = new UsuarioDTO("José Karim", "Franco", "Valencia", "9876543210", "JKFV040112HSRLR1W4", "VAPD040603TQ1", "karim@gmail.com", "Prueba321", "RRHH");
-        UsuarioDTO resultado;
+        boolean excepcion = false;
 
         // ACT
-        resultado = usuarioBO.agregarUsuario(empleado2);
+        try {
+            usuarioBO.agregarUsuario(empleado2);
+        } catch (ObjetosNegocioException ex) {
+            excepcion = true;
+        }
 
         // ASSERT
-        assertNotNull(resultado);
+        assertTrue(excepcion);
     }
 
     @Test
@@ -122,48 +133,59 @@ public class UsuarioBOTest {
     }
 
     @Test
-    public void obtenerUsuarioCorreoContra_CorreoInexistente_ReturnFail() throws Exception {
+    public void obtenerUsuarioCorreoContra_CorreoInexistente_ThrowException() throws Exception {
         // ARRANGE
         UsuarioDTO cliente1 = new UsuarioDTO("Diego", "Valenzuela", "Parra", "0123456789", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "diego@gmail.com", "Prueba123", "GERE");
         usuarioBO.agregarUsuario(cliente1);
         UsuarioDTO cliente2 = new UsuarioDTO("José Karim", "Franco", "Valencia", "9876543210", "JKFV040112HSRLR1W4", "VAPD040603TQ1", "karim@gmail.com", "Prueba123", "RRHH");
-        UsuarioDTO resultado;
+        boolean excepcion = false;
 
         // ACT
-        resultado = usuarioBO.obtenerUsuarioCorreoContra(cliente2);
+        try {
+            usuarioBO.obtenerUsuarioCorreoContra(cliente2);
+        } catch (ObjetosNegocioException ex) {
+            excepcion = true;
+        }
 
         // ASSERT
-        assertNull(resultado);
+        assertTrue(excepcion);
     }
 
     @Test
-    public void obtenerUsuarioCorreoContra_ContraInexistente_ReturnFail() throws Exception {
+    public void obtenerUsuarioCorreoContra_ContraInexistente_ThrowException() throws Exception {
         // ARRANGE
         UsuarioDTO cliente1 = new UsuarioDTO("Diego", "Valenzuela", "Parra", "0123456789", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "prueba@gmail.com", "Prueba123", "GERE");
         usuarioBO.agregarUsuario(cliente1);
         UsuarioDTO cliente2 = new UsuarioDTO("José Karim", "Franco", "Valencia", "9876543210", "JKFV040112HSRLR1W4", "VAPD040603TQ1", "prueba@gmail.com", "Prueba321", "RRHH");
-        UsuarioDTO resultado;
+        boolean excepcion = false;
 
         // ACT
-        resultado = usuarioBO.obtenerUsuarioCorreoContra(cliente2);
+        try {
+            usuarioBO.obtenerUsuarioCorreoContra(cliente2);
+        } catch (ObjetosNegocioException ex) {
+            excepcion = true;
+        }
 
         // ASSERT
-        assertNull(resultado);
+        assertTrue(excepcion);
     }
 
     @Test
-    public void obtenerUsuarioCorreoContra_ValoresInexistentes_ReturnFail() throws Exception {
+    public void obtenerUsuarioCorreoContra_ValoresInexistentes_ThrowException() throws Exception {
         // ARRANGE
         UsuarioDTO cliente1 = new UsuarioDTO("Diego", "Valenzuela", "Parra", "0123456789", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "diego@gmail.com", "Prueba123", "GERE");
         usuarioBO.agregarUsuario(cliente1);
         UsuarioDTO cliente2 = new UsuarioDTO("José Karim", "Franco", "Valencia", "9876543210", "JKFV040112HSRLR1W4", "VAPD040603TQ1", "karim@gmail.com", "Prueba321", "RRHH");
-        UsuarioDTO resultado;
+        boolean excepcion = false;
 
         // ACT
-        resultado = usuarioBO.obtenerUsuarioCorreoContra(cliente2);
-
+        try {
+            usuarioBO.obtenerUsuarioCorreoContra(cliente2);
+        } catch (ObjetosNegocioException ex) {
+            excepcion = true;
+        }
         // ASSERT
-        assertNull(resultado);
+        assertTrue(excepcion);
     }
 
     @Test

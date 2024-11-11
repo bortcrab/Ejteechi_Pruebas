@@ -81,7 +81,7 @@ public class TicketBO implements ITicketBO {
         Ticket ticketEnt;
         try {
             ticketEnt = ticketDAO.obtenerTicket(folio);
-            
+
             if (ticketEnt == null) {
                 throw new ObjetosNegocioException("No se encontró un ticket con el folio dado.");
             }
@@ -136,6 +136,10 @@ public class TicketBO implements ITicketBO {
 
             // Obtenemos el ticket actualizado.
             Ticket ticketEnt = ticketDAO.obtenerTicket(folio);
+
+            if (ticketEnt == null) {
+                throw new ObjetosNegocioException("No se encontró un ticket con el folio dado.");
+            }
 
             // Si no hay nadie atendiéndolo, se asignamos el idAtendiendo del parámetro.
             if (ticketEnt.getIdAtendiendo() == null) {

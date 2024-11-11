@@ -52,19 +52,22 @@ public class UsuarioDAOTest {
      * Test of agregarCliente method, of class UsuarioDAO.
      */
     @Test
-    public void agregarCliente_ClienteCorreoExistente_ReturnFail() throws Exception {
+    public void agregarCliente_ClienteCorreoExistente_ThrowException() throws Exception {
         // ARRANGE
         Usuario cliente1 = new Usuario("Diego", "Valenzuela", "Parra", "", "Prueba@gmail.com", "Prueba123", "", "", "cliente");
         Usuario cliente2 = new Usuario("José Karim", "Franco", "Valencia", "", "Prueba@gmail.com", "Prueba321", "", "", "cliente");
         usuarioDAO.agregarCliente(cliente1);
-
-        Usuario resultado;
+        boolean excepcion = false;
 
         // ACT
-        resultado = usuarioDAO.agregarCliente(cliente2);
+        try {
+            usuarioDAO.agregarCliente(cliente2);
+        } catch (PersistenciaException ex) {
+            excepcion = true;
+        }
 
         // ASSERT
-        assertNotNull(resultado);
+        assertTrue(excepcion);
     }
 
     @Test
@@ -230,50 +233,60 @@ public class UsuarioDAOTest {
     }
 
     @Test
-    public void agregarEmpleado_EmpleadoCorreoExistente_ReturnFail() throws Exception {
+    public void agregarEmpleado_EmpleadoCorreoExistente_ThrowException() throws PersistenciaException {
         // ARRANGE
         Usuario empleado1 = new Usuario("Diego", "Valenzuela", "Parra", "0123456789", "Prueba@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "GERE");
         usuarioDAO.agregarEmpleado(empleado1);
         Usuario empleado2 = new Usuario("José Karim", "Franco", "Valencia", "9876543210", "Prueba@gmail.com", "Prueba321", "JKFV040112HSRLR1W4", "JKFV040112GHC", "RRHH");
-        Usuario resultado;
+        boolean excepcion = false;
 
         // ACT
-        resultado = usuarioDAO.agregarEmpleado(empleado2);
+        try {
+            usuarioDAO.agregarEmpleado(empleado2);
+        } catch (PersistenciaException ex) {
+            excepcion = true;
+        }
 
         // ASSERT
-        assertNotNull(resultado);
+        assertTrue(excepcion);
     }
 
     @Test
-    public void agregarEmpleado_EmpleadoCurpExistente_ReturnFail() throws Exception {
+    public void agregarEmpleado_EmpleadoCurpExistente_ThrowException() throws Exception {
         // ARRANGE
         Usuario empleado1 = new Usuario("Diego", "Valenzuela", "Parra", "0123456789", "diego@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "GERE");
         usuarioDAO.agregarEmpleado(empleado1);
-
         Usuario empleado2 = new Usuario("José Karim", "Franco", "Valencia", "9876543210", "karim@gmail.com", "Prueba321", "VAPD040603HSRLRGA6", "JKFV040112GHC", "RRHH");
-        Usuario resultado;
+        boolean excepcion = false;
 
         // ACT
-        resultado = usuarioDAO.agregarEmpleado(empleado2);
+        try {
+            usuarioDAO.agregarEmpleado(empleado2);
+        } catch (PersistenciaException ex) {
+            excepcion = true;
+        }
 
         // ASSERT
-        assertNotNull(resultado);
+        assertTrue(excepcion);
     }
 
     @Test
-    public void agregarEmpleado_EmpleadoRfcExistente_ReturnFail() throws Exception {
+    public void agregarEmpleado_EmpleadoRfcExistente_ThrowException() throws Exception {
         // ARRANGE
         Usuario empleado1 = new Usuario("Diego", "Valenzuela", "Parra", "0123456789", "diego@gmail.com", "Prueba123", "VAPD040603HSRLRGA6", "VAPD040603TQ1", "GERE");
         usuarioDAO.agregarEmpleado(empleado1);
-
         Usuario empleado2 = new Usuario("José Karim", "Franco", "Valencia", "9876543210", "karim@gmail.com", "Prueba321", "JKFV040112HSRLR1W4", "VAPD040603TQ1", "RRHH");
-        Usuario resultado;
+        boolean excepcion = false;
 
         // ACT
-        resultado = usuarioDAO.agregarEmpleado(empleado2);
+        try {
+            usuarioDAO.agregarEmpleado(empleado2);
+        } catch (PersistenciaException ex) {
+            excepcion = true;
+        }
 
         // ASSERT
-        assertNotNull(resultado);
+        assertTrue(excepcion);
     }
 
     @Test

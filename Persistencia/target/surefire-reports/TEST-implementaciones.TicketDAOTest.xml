@@ -1,0 +1,1336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="implementaciones.TicketDAOTest" time="0.664" tests="15" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\Familia\Documents\GitHub\Ejteechi_Pruebas\Persistencia\target\test-classes;C:\Users\Familia\Documents\GitHub\Ejteechi_Pruebas\Persistencia\target\classes;C:\Users\Familia\.m2\repository\org\mongodb\mongo-java-driver\3.10.2\mongo-java-driver-3.10.2.jar;C:\Users\Familia\.m2\repository\org\mongodb\bson\3.10.2\bson-3.10.2.jar;C:\Users\Familia\.m2\repository\org\mongodb\mongodb-driver-core\3.10.2\mongodb-driver-core-3.10.2.jar;C:\Users\Familia\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\Familia\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Familia\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\Familia\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Familia\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\Familia\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\Familia\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\Familia\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\Familia\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Familia\.m2\repository\org\mockito\mockito-junit-jupiter\5.12.0\mockito-junit-jupiter-5.12.0.jar;C:\Users\Familia\.m2\repository\org\mockito\mockito-core\5.12.0\mockito-core-5.12.0.jar;C:\Users\Familia\.m2\repository\net\bytebuddy\byte-buddy\1.14.15\byte-buddy-1.14.15.jar;C:\Users\Familia\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.15\byte-buddy-agent-1.14.15.jar;C:\Users\Familia\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="America/Hermosillo"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="user.country" value="MX"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
+    <property name="sun.java.command" value="C:\Users\Familia\AppData\Local\Temp\surefire2632944764521100717\surefirebooter-20241111061826266_3.jar C:\Users\Familia\AppData\Local\Temp\surefire2632944764521100717 2024-11-11T06-18-26_170-jvmRun1 surefire-20241111061826266_1tmp surefire_0-20241111061826266_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="test" value="implementaciones.TicketDAOTest"/>
+    <property name="surefire.test.class.path" value="C:\Users\Familia\Documents\GitHub\Ejteechi_Pruebas\Persistencia\target\test-classes;C:\Users\Familia\Documents\GitHub\Ejteechi_Pruebas\Persistencia\target\classes;C:\Users\Familia\.m2\repository\org\mongodb\mongo-java-driver\3.10.2\mongo-java-driver-3.10.2.jar;C:\Users\Familia\.m2\repository\org\mongodb\bson\3.10.2\bson-3.10.2.jar;C:\Users\Familia\.m2\repository\org\mongodb\mongodb-driver-core\3.10.2\mongodb-driver-core-3.10.2.jar;C:\Users\Familia\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\Familia\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Familia\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\Familia\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Familia\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\Familia\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\Familia\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\Familia\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\Familia\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Familia\.m2\repository\org\mockito\mockito-junit-jupiter\5.12.0\mockito-junit-jupiter-5.12.0.jar;C:\Users\Familia\.m2\repository\org\mockito\mockito-core\5.12.0\mockito-core-5.12.0.jar;C:\Users\Familia\.m2\repository\net\bytebuddy\byte-buddy\1.14.15\byte-buddy-1.14.15.jar;C:\Users\Familia\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.15\byte-buddy-agent-1.14.15.jar;C:\Users\Familia\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Familia"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-07-16"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-21"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\Familia\Documents\GitHub\Ejteechi_Pruebas\Persistencia"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\Familia\AppData\Local\Temp\surefire2632944764521100717\surefirebooter-20241111061826266_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.4+8-LTS-274"/>
+    <property name="user.name" value="Familia"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans-22\netbeans\java\maven-nblib\netbeans-eventspy.jar;C:\Program Files\NetBeans-22\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="localRepository" value="C:\Users\Familia\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\Familia\AppData\Local\Temp\"/>
+    <property name="java.version" value="21.0.4"/>
+    <property name="user.dir" value="C:\Users\Familia\Documents\GitHub\Ejteechi_Pruebas\Persistencia"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-21\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Familia\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\Familia\AppData\Local\Programs\Python\Python312\;C:\Users\Familia\AppData\Local\Microsoft\WindowsApps;C:\Users\Familia\AppData\Local\spicetify;C:\Users\Familia\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Familia\AppData\Local\GitHubDesktop\bin;%IntelliJ IDEA%;C:\Users\Familia\AppData\Local\JetBrains\Toolbox\scripts;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="21.0.4+8-LTS-274"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="obtenerTickets_FolioExistente_ReturnSuccess" classname="implementaciones.TicketDAOTest" time="0.054">
+    <system-err><![CDATA[nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:26 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:1}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2471000}
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:2}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. implementaciones.UsuarioDAO obtenerUsuarioCorreo
+INFO: Se ha consultado la colección 'usuarios'.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:2}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:26 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:26 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:3}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=378800}
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:4}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. implementaciones.UsuarioDAO agregarCliente
+INFO: Se ha insertado un documento en la colección 'usuarios'.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:4}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:26 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:26 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:5}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=286400}
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:6}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. implementaciones.UsuarioDAO obtenerUsuarioCorreo
+INFO: Se ha consultado la colección 'usuarios'.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:6}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:26 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:26 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:7}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=276100}
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:8}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. implementaciones.UsuarioDAO obtenerUsuarioCorreo
+INFO: Se ha consultado la colección 'usuarios'.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:8}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:26 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:26 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:9}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=282300}
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:10}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. implementaciones.UsuarioDAO obtenerEmpleadoCurp
+INFO: Se ha consultado la colección 'usuarios'.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:10}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:26 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:26 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:11}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=230900}
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:12}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. implementaciones.UsuarioDAO obtenerEmpleadoRfc
+INFO: Se ha consultado la colección 'usuarios'.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:12}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:26 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:26 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:13}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=245500}
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:14}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. implementaciones.UsuarioDAO agregarEmpleado
+INFO: Se ha insertado un documento en la colección 'usuarios'.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:14}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:26 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:26 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:15}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=275600}
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:16}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. implementaciones.UsuarioDAO obtenerUsuarioCorreo
+INFO: Se ha consultado la colección 'usuarios'.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:16}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:26 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:26 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:17}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=264600}
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:18}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. implementaciones.TicketDAO agregarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:18}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:26 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:26 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:19}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=279000}
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:20}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. implementaciones.TicketDAO obtenerTickets
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:20}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:26 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:26 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:21}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=255000}
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:22}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. implementaciones.TicketDAO obtenerTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:22}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:26 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:26 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:23}] to localhost:27017
+nov 11, 2024 6:18:26 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=261700}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:24}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO borrarTickets
+INFO: Se han eliminado 1 registros de la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:24}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+]]></system-err>
+  </testcase>
+  <testcase name="obtenerTickets_ClienteConTickets_ReturnSuccess" classname="implementaciones.TicketDAOTest" time="0.021">
+    <system-err><![CDATA[nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:25}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=245300}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:26}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO agregarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:26}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:27}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=237600}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:28}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTickets
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:28}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:29}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=222000}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:30}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO borrarTickets
+INFO: Se han eliminado 1 registros de la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:30}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+]]></system-err>
+  </testcase>
+  <testcase name="obtenerTickets_ClienteSinTickets_ReturnSuccess" classname="implementaciones.TicketDAOTest" time="0.014">
+    <system-err><![CDATA[nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:31}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=236500}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:32}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTickets
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:32}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:33}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=231200}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:34}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO borrarTickets
+INFO: Se han eliminado 0 registros de la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:34}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+]]></system-err>
+  </testcase>
+  <testcase name="agregarRespuesta_EmpleadoFolioValido_ReturnSuccess" classname="implementaciones.TicketDAOTest" time="0.04">
+    <system-err><![CDATA[nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:35}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=245700}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:36}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO agregarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:36}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:37}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=231900}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:38}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTickets
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:38}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:39}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=231100}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:40}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:40}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:41}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=280500}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:42}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO agregarRespuesta
+INFO: Se ha actualizado un documento de la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:42}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:43}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=216200}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:44}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:44}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:45}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=186200}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:46}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO borrarTickets
+INFO: Se han eliminado 1 registros de la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:46}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+]]></system-err>
+  </testcase>
+  <testcase name="agregarRespuesta_ClienteFolioValido_ReturnSuccess" classname="implementaciones.TicketDAOTest" time="0.035">
+    <system-err><![CDATA[nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:47}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=194400}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:48}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO agregarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:48}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:49}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=220100}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:50}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTickets
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:50}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:51}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=198000}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:52}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:52}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:53}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=207600}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:54}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO agregarRespuesta
+INFO: Se ha actualizado un documento de la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:54}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:55}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=210900}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:56}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:56}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:57}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=221100}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:58}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO borrarTickets
+INFO: Se han eliminado 1 registros de la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:58}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+]]></system-err>
+  </testcase>
+  <testcase name="actualizarTicket_FolioValidoResuelto_ReturnSuccess" classname="implementaciones.TicketDAOTest" time="0.041">
+    <system-err><![CDATA[nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:59}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=239700}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:60}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO agregarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:60}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:61}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=162400}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:62}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTickets
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:62}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:63}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=158000}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:64}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:64}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:65}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=244700}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:66}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:66}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:67}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=164900}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:68}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO actualizarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:68}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:69}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=162500}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:70}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:70}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:71}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=163800}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:72}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO borrarTickets
+INFO: Se han eliminado 1 registros de la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:72}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+]]></system-err>
+  </testcase>
+  <testcase name="agregarRespuesta_FolioInvalido_ThrowException" classname="implementaciones.TicketDAOTest" time="0.022">
+    <system-err><![CDATA[nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:73}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=249200}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:74}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO agregarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:74}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:75}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=209600}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:76}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:77}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=298200}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:78}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO borrarTickets
+INFO: Se han eliminado 1 registros de la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:78}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+]]></system-err>
+  </testcase>
+  <testcase name="agregarTicket_TicketValido_ReturnSuccess" classname="implementaciones.TicketDAOTest" time="0.024">
+    <system-err><![CDATA[nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:79}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=172500}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:80}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO agregarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:80}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:81}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=238200}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:82}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTickets
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:82}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:83}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=222700}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:84}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO borrarTickets
+INFO: Se han eliminado 1 registros de la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:84}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+]]></system-err>
+  </testcase>
+  <testcase name="obtenerTodosTickets_EmpleadoAtiendeAlgunos_ReturnSuccess" classname="implementaciones.TicketDAOTest" time="0.025">
+    <system-err><![CDATA[nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:85}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=166000}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:86}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO agregarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:86}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:87}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=195700}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:88}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO agregarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:88}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:89}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=158100}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:90}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTodosTickets
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:90}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:91}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=150900}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:92}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO borrarTickets
+INFO: Se han eliminado 2 registros de la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:92}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+]]></system-err>
+  </testcase>
+  <testcase name="obtenerTodosTickets_OtroEmpleadoAtiendeTodos_ReturnSuccess" classname="implementaciones.TicketDAOTest" time="0.018">
+    <system-err><![CDATA[nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:93}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=147900}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:94}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO agregarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:94}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:95}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=179100}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:96}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO agregarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:96}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:97}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=173700}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:98}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTodosTickets
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:98}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:99}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=149500}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:100}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO borrarTickets
+INFO: Se han eliminado 2 registros de la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:100}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+]]></system-err>
+  </testcase>
+  <testcase name="actualizarTicket_FolioValidoPendiente_ReturnSuccess" classname="implementaciones.TicketDAOTest" time="0.034">
+    <system-err><![CDATA[nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:101}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=157500}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:102}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO agregarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:102}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:103}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=161200}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:104}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTickets
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:104}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:105}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=175500}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:106}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:106}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:107}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=136600}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:108}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:108}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:109}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=154000}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:110}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO actualizarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:110}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:111}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=141100}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:112}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:112}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:113}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=147600}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:114}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO borrarTickets
+INFO: Se han eliminado 1 registros de la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:114}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+]]></system-err>
+  </testcase>
+  <testcase name="obtenerTodosTickets_EmpleadoAtiendeTodos_ReturnSuccess" classname="implementaciones.TicketDAOTest" time="0.019">
+    <system-err><![CDATA[nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:115}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=175200}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:116}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO agregarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:116}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:117}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=147600}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:118}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO agregarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:118}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:119}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=149200}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:120}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTodosTickets
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:120}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:121}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=130600}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:122}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO borrarTickets
+INFO: Se han eliminado 2 registros de la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:122}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+]]></system-err>
+  </testcase>
+  <testcase name="obtenerTodosTickets_NoHayTickets_ReturnSuccess" classname="implementaciones.TicketDAOTest" time="0.01">
+    <system-err><![CDATA[nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:123}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=172200}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:124}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTodosTickets
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:124}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:125}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=151300}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:126}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO borrarTickets
+INFO: Se han eliminado 0 registros de la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:126}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+]]></system-err>
+  </testcase>
+  <testcase name="obtenerTodosTickets_TicketsSinAtender_ReturnSuccess" classname="implementaciones.TicketDAOTest" time="0.018">
+    <system-err><![CDATA[nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:127}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=136300}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:128}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO agregarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:128}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:129}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=168400}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:130}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO agregarTicket
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:130}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:131}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=145500}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:132}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO obtenerTodosTickets
+INFO: Se ha insertado un documento en la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:132}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:133}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=159500}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:134}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO borrarTickets
+INFO: Se han eliminado 2 registros de la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:134}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+]]></system-err>
+  </testcase>
+  <testcase name="obtenerTickets_FolioInexistente_ThrowException" classname="implementaciones.TicketDAOTest" time="0.01">
+    <system-err><![CDATA[nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:135}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=161000}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:136}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+nov 11, 2024 6:18:27 A. M. conexion.Conexion crearConexion
+INFO: Se ha establecido la conexión con el servidor.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:137}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[8, 0, 3]}, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=147300}
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:138}] to localhost:27017
+nov 11, 2024 6:18:27 A. M. implementaciones.TicketDAO borrarTickets
+INFO: Se han eliminado 0 registros de la colección 'tickets'.
+nov 11, 2024 6:18:27 A. M. com.mongodb.diagnostics.logging.JULLogger log
+INFO: Closed connection [connectionId{localValue:138}] to localhost:27017 because the pool has been closed.
+nov 11, 2024 6:18:27 A. M. conexion.Conexion cerrarConexion
+INFO: Se ha cerrado la conexión con el servidor.
+]]></system-err>
+  </testcase>
+</testsuite>

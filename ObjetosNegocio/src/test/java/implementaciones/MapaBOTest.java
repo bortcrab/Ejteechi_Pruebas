@@ -10,12 +10,14 @@ import colecciones.Ruta;
 import dtos.LineaDTO;
 import dtos.MapaDTO;
 import dtos.RutaDTO;
+import excepciones.ObjetosNegocioException;
 import interfaces.IMapaDAO;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -90,16 +92,15 @@ public class MapaBOTest {
     }
 
     @Test
-    public void obtenerMapa_MapaInexistente_ReturnFail() throws Exception {
+    public void obtenerMapa_MapaInexistente_ThrowException() throws Exception {
         // ARRANGE
         when(mapaDAO.obtenerMapa()).thenReturn(null);
         MapaDTO resultado;
 
-        // ACT
-        resultado = mapaBO.obtenerMapa();
-
-        // ASSERT
-        assertNotNull(resultado);
+        // ACT y ASSERT
+        ObjetosNegocioException excepcion = assertThrows(ObjetosNegocioException.class, () -> {
+            mapaBO.obtenerMapa();
+        });
     }
 
     @Test

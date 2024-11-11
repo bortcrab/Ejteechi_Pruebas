@@ -9,6 +9,7 @@ import colecciones.Ticket;
 import dtos.RespuestaDTO;
 import dtos.TicketDTO;
 import dtos.UsuarioDTO;
+import excepciones.ObjetosNegocioException;
 import excepciones.PersistenciaException;
 import interfaces.ITicketDAO;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import java.util.List;
 import org.bson.types.ObjectId;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
@@ -113,7 +115,7 @@ public class TicketBOTest {
     }
 
     @Test
-    public void obtenerTicket_FolioInvalido_ReturnFail() throws Exception {
+    public void obtenerTicket_FolioInvalido_ThrowException() throws Exception {
         // ARRANGE
         Ticket ticketEnt = new Ticket("Ticket de prueba", new Date(), "Pendiente", cliente.getId(), cliente.getNombres(), empleado.getId(), new ArrayList<>());
         ticketEnt.setId(new ObjectId());
@@ -121,15 +123,10 @@ public class TicketBOTest {
         when(ticketDAO.obtenerTicket(ticketEnt.getId())).thenReturn(null);
         TicketDTO resultado;
 
-        // ACT
-        resultado = ticketBO.obtenerTicket(ticketEnt.getId());
-
-        // ASSERT
-        assertNotNull(resultado);
-        assertEquals(esperado.getContenido(), resultado.getContenido());
-        assertEquals(esperado.getIdUsuario(), resultado.getIdUsuario());
-        assertEquals(esperado.getIdAtendiendo(), resultado.getIdAtendiendo());
-        assertEquals(esperado.getNombreUsuario(), resultado.getNombreUsuario());
+        // ACT y ASSERT
+        ObjetosNegocioException excepcion = assertThrows(ObjetosNegocioException.class, () -> {
+            ticketBO.obtenerTicket(ticketEnt.getId());
+        });
     }
 
     @Test
@@ -154,18 +151,17 @@ public class TicketBOTest {
     }
 
     @Test
-    public void enviarRespuesta_FolioInvalido_ReturnFail() throws Exception {
+    public void enviarRespuesta_FolioInvalido_ThrowException() throws Exception {
         // ARRANGE
         ObjectId folio = new ObjectId();
         RespuestaDTO respuestaDTO = new RespuestaDTO("Respuesta de prueba :D", new Date(), cliente.getNombres(), cliente.getId());
         when(ticketDAO.obtenerTicket(folio)).thenReturn(null);
         RespuestaDTO resultado;
 
-        // ACT
-        resultado = ticketBO.enviarRespuesta(folio, respuestaDTO).getRespuestas().getFirst();
-
-        // ASSERT
-        assertNotNull(resultado);
+        // ACT y ASSERT
+        ObjetosNegocioException excepcion = assertThrows(ObjetosNegocioException.class, () -> {
+            ticketBO.enviarRespuesta(folio, respuestaDTO);
+        });
     }
 
     @Test
@@ -176,7 +172,7 @@ public class TicketBOTest {
         Ticket esperado = new Ticket("Ticket de prueba 1", new Date(), "Pendiente", cliente.getId(), cliente.getNombres(), empleado.getId(), new ArrayList<>(Arrays.asList(respuesta)));
         esperado.setId(folio);
         when(ticketDAO.obtenerTicket(folio)).thenReturn(esperado);
-        RespuestaDTO respuestaDTO = new RespuestaDTO("Respuesta de prueba :D", new Date(), cliente.getNombres(), cliente.getId());
+        RespuestaDTO respuestaDTO = new RespuestaDTO("Respuesta de prueba :D", new Date(), empleado.getNombres(), empleado.getId());
         RespuestaDTO resultado;
 
         // ACT
@@ -190,17 +186,16 @@ public class TicketBOTest {
     }
 
     @Test
-    public void enviarRespuestaTrabajador_FolioInvalido_ReturnFail() throws Exception {
+    public void enviarRespuestaTrabajador_FolioInvalido_ThrowException() throws Exception {
         // ARRANGE
         ObjectId folio = new ObjectId();
         doThrow(PersistenciaException.class).when(ticketDAO).agregarRespuesta(folio, new Respuesta());
-        TicketDTO resultado;
+        RespuestaDTO respuestaDTO = new RespuestaDTO("Respuesta de prueba :D", new Date(), empleado.getNombres(), empleado.getId());
 
-        // ACT
-        resultado = ticketBO.enviarRespuestaTrabajador(folio, new RespuestaDTO(), empleado.getId());
-
-        // ASSERT
-        assertNotNull(resultado);
+        // ACT y ASSERT
+        ObjetosNegocioException excepcion = assertThrows(ObjetosNegocioException.class, () -> {
+            ticketBO.enviarRespuestaTrabajador(folio, respuestaDTO, empleado.getId());
+        });
     }
 
 }

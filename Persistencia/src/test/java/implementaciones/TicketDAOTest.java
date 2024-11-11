@@ -120,16 +120,20 @@ public class TicketDAOTest {
     }
 
     @Test
-    public void obtenerTickets_FolioInexistente_ReturnFail() throws PersistenciaException {
+    public void obtenerTickets_FolioInexistente_ThrowException() throws PersistenciaException {
         // ARRANGE
         ObjectId folio = new ObjectId();
-        Ticket resultado;
+        boolean excepcion = false;
 
         // ACT
-        resultado = ticketDAO.obtenerTicket(folio);
+        try {
+            ticketDAO.obtenerTicket(folio);
+        } catch (PersistenciaException pe) {
+            excepcion = true;
+        }
 
         // ASSERT
-        assertNotNull(resultado);
+        assertTrue(excepcion);
     }
 
     @Test
@@ -243,20 +247,23 @@ public class TicketDAOTest {
     }
 
     @Test
-    public void agregarRespuesta_FolioInvalido_ReturnFail() throws PersistenciaException {
+    public void agregarRespuesta_FolioInvalido_ThrowException() throws PersistenciaException {
         // ARRANGE
         Ticket ticket = new Ticket("Ticket de prueba 1", new Date(), "Pendiente", cliente.getId(), "Diego", empleado.getId(), new ArrayList<>());
         ticketDAO.agregarTicket(ticket);
         ObjectId folio = new ObjectId();
         Respuesta respuesta = new Respuesta("Respuesta de prueba :D", new Date(), empleado.getNombres(), empleado.getId());
-        List<Respuesta> resultado;
+        boolean excepcion = false;
 
         // ACT
-        ticketDAO.agregarRespuesta(folio, respuesta);
+        try {
+            ticketDAO.agregarRespuesta(folio, respuesta);
+        } catch (PersistenciaException pe) {
+            excepcion = true;
+        }
 
         // ASSERT
-        resultado = ticketDAO.obtenerTicket(folio).getRespuestas();
-        assertEquals(0, resultado.size());
+        assertTrue(excepcion);
     }
 
     @Test
