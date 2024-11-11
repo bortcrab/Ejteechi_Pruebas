@@ -7,12 +7,15 @@ import administrarTickets.IAdministrarTickets;
 import dtos.RespuestaDTO;
 import dtos.TicketDTO;
 import dtos.UsuarioDTO;
+import excepciones.ObjetosNegocioException;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import excepciones.PresentacionException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JScrollBar;
 import utilidades.Validador;
 
@@ -176,7 +179,7 @@ public class FrmChatVistaCliente extends javax.swing.JFrame {
     /**
      * Método para enviar una respuesta.
      */
-    private void enviarRespuesta() {
+    private void enviarRespuesta() throws ObjetosNegocioException {
         try {
             // Obtenemos el mensaje de la respuesta.
             String mensaje = txtMensaje.getText();
@@ -422,7 +425,11 @@ public class FrmChatVistaCliente extends javax.swing.JFrame {
      * @param evt Evento al que se escucha.
      */
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        enviarRespuesta();
+        try {
+            enviarRespuesta();
+        } catch (ObjetosNegocioException ex) {
+            Logger.getLogger(FrmChatVistaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     /**
@@ -451,7 +458,11 @@ public class FrmChatVistaCliente extends javax.swing.JFrame {
      * @param evt Evento al que se escucha.
      */
     private void txtMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMensajeActionPerformed
-        enviarRespuesta();
+        try {
+            enviarRespuesta();
+        } catch (ObjetosNegocioException ex) {
+            Logger.getLogger(FrmChatVistaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_txtMensajeActionPerformed
 
     /**

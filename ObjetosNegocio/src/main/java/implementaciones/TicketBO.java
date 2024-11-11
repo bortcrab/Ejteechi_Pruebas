@@ -81,6 +81,10 @@ public class TicketBO implements ITicketBO {
         Ticket ticketEnt;
         try {
             ticketEnt = ticketDAO.obtenerTicket(folio);
+            
+            if (ticketEnt == null) {
+                throw new ObjetosNegocioException("No se encontró un ticket con el folio dado.");
+            }
         } catch (PersistenciaException pe) {
             throw new ObjetosNegocioException(pe.getMessage());
         }

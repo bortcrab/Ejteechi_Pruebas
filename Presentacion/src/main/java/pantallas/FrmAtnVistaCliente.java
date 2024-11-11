@@ -3,6 +3,7 @@
  */
 package pantallas;
 
+import administrarTickets.CtrlAdministrarTickets;
 import administrarTickets.FacadeAdministrarTickets;
 import administrarTickets.IAdministrarTickets;
 import dtos.TicketDTO;
@@ -10,6 +11,8 @@ import dtos.UsuarioDTO;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import excepciones.PresentacionException;
+import implementaciones.TicketBO;
+import implementaciones.TicketDAO;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,7 +45,7 @@ public class FrmAtnVistaCliente extends javax.swing.JFrame {
     public FrmAtnVistaCliente(UsuarioDTO usuario) throws PresentacionException {
         initComponents();
 
-        this.facadeAdministrarTickets = new FacadeAdministrarTickets();
+        this.facadeAdministrarTickets = new FacadeAdministrarTickets(new CtrlAdministrarTickets(new TicketBO(new TicketDAO())));
         this.usuario = usuario;
 
         // Mandamos a validar la sesión.

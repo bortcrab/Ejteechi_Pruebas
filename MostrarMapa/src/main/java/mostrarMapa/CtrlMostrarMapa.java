@@ -10,8 +10,9 @@ import dtos.MapaDTO;
 import dtos.RutaDTO;
 import java.util.List;
 import interfaces.IMapaBO;
-import implementaciones.MapaBO;
 import excepciones.ObjetosNegocioException;
+import implementaciones.MapaBO;
+import interfaces.IMapaDAO;
 import obtenerImagenesMapa.FacadeObtenerImagenesMapa;
 import org.jxmapviewer.viewer.GeoPosition;
 import obtenerImagenesMapa.IObtenerImagenesMapa;
@@ -31,9 +32,9 @@ public class CtrlMostrarMapa {
     /**
      * Constructor que inicializa los atributos de la clase.
      */
-    public CtrlMostrarMapa() {
+    public CtrlMostrarMapa(IMapaBO mapaBO) {
         obtenerImagenesMapa = new FacadeObtenerImagenesMapa();
-        mapaBO = new MapaBO();
+        this.mapaBO = mapaBO;
     }
 
     /**

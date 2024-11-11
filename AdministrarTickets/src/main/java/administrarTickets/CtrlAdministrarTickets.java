@@ -6,6 +6,7 @@ package administrarTickets;
 import dtos.RespuestaDTO;
 import dtos.TicketDTO;
 import dtos.UsuarioDTO;
+import excepciones.ObjetosNegocioException;
 import implementaciones.TicketBO;
 import interfaces.ITicketBO;
 import java.util.List;
@@ -23,8 +24,8 @@ public class CtrlAdministrarTickets {
     /**
      * Constructor que inicializa el atributo de la clase.
      */
-    public CtrlAdministrarTickets() {
-        this.ticketBO = new TicketBO();
+    public CtrlAdministrarTickets(ITicketBO ticketBO) {
+        this.ticketBO = ticketBO;
     }
 
     /**
@@ -53,7 +54,7 @@ public class CtrlAdministrarTickets {
      * @param respuesta Respuesta a enviar.
      * @return El ticket actualizado.
      */
-    public TicketDTO enviarRespuesta(ObjectId folio, RespuestaDTO respuesta) {
+    public TicketDTO enviarRespuesta(ObjectId folio, RespuestaDTO respuesta) throws ObjetosNegocioException {
         return ticketBO.enviarRespuesta(folio, respuesta);
     }
 }

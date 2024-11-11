@@ -3,18 +3,24 @@
  */
 package pantallas;
 
+import atenderTickets.CtrlAtenderTickets;
 import atenderTickets.FacadeAtenderTickets;
 import atenderTickets.IAtenderTickets;
 import dtos.TicketDTO;
 import dtos.UsuarioDTO;
+import excepciones.ObjetosNegocioException;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import excepciones.PresentacionException;
+import implementaciones.TicketBO;
+import implementaciones.TicketDAO;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import utilidades.JButtonCellEditor;
@@ -43,7 +49,7 @@ public class FrmAtnVistaTrabajador extends javax.swing.JFrame {
     public FrmAtnVistaTrabajador(UsuarioDTO usuario) throws PresentacionException {
         initComponents();
 
-        this.facadeAtenderTickets = new FacadeAtenderTickets();
+        this.facadeAtenderTickets = new FacadeAtenderTickets(new CtrlAtenderTickets(new TicketBO(new TicketDAO())));
         this.usuario = usuario;
 
         // Se valida la sesión.
@@ -64,13 +70,17 @@ public class FrmAtnVistaTrabajador extends javax.swing.JFrame {
 
         // Mandamos a formatear la tabla y a cargar los datos.
         formatearTabla();
-        cargarTickets();
+        try {
+            cargarTickets();
+        } catch (ObjetosNegocioException ex) {
+            Logger.getLogger(FrmAtnVistaTrabajador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
      * Método para cargar los datos de los tickets.
      */
-    private void cargarTickets() {
+    private void cargarTickets() throws ObjetosNegocioException {
         // Obtenemos la lista de tickets.
         listaTickets = facadeAtenderTickets.obtenerTodosTickets(usuario.getId());
         // Mandamos a llenar la tabla de tickets.

@@ -7,12 +7,15 @@ import atenderTickets.IAtenderTickets;
 import dtos.RespuestaDTO;
 import dtos.TicketDTO;
 import dtos.UsuarioDTO;
+import excepciones.ObjetosNegocioException;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import excepciones.PresentacionException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JScrollBar;
 import org.bson.types.ObjectId;
 import utilidades.Validador;
@@ -198,7 +201,7 @@ public class FrmChatVistaTrabajador extends javax.swing.JFrame {
     /**
      * Método para enviar una respuesta.
      */
-    private void enviarRespuesta() {
+    private void enviarRespuesta() throws ObjetosNegocioException {
         try {
             // Obtenemos el mensaje de la respuesta.
             String mensaje = txtMensaje.getText();
@@ -239,7 +242,7 @@ public class FrmChatVistaTrabajador extends javax.swing.JFrame {
     /**
      * Método para cambiar de estado un ticket.
      */
-    private void cambiarEstado() {
+    private void cambiarEstado() throws ObjetosNegocioException {
         if (ticket.getEstado().equals("Pendiente")) { // Si actualmente está pendiente.
             // Cambiamos el estado.
             ticket.setEstado("Resuelto");
@@ -459,7 +462,11 @@ public class FrmChatVistaTrabajador extends javax.swing.JFrame {
      * @param evt Evento al que se escucha.
      */
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        enviarRespuesta();
+        try {
+            enviarRespuesta();
+        } catch (ObjetosNegocioException ex) {
+            Logger.getLogger(FrmChatVistaTrabajador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     /**
@@ -488,7 +495,11 @@ public class FrmChatVistaTrabajador extends javax.swing.JFrame {
      * @param evt Evento al que se escucha.
      */
     private void txtMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMensajeActionPerformed
-        enviarRespuesta();
+        try {
+            enviarRespuesta();
+        } catch (ObjetosNegocioException ex) {
+            Logger.getLogger(FrmChatVistaTrabajador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_txtMensajeActionPerformed
 
     /**
@@ -497,7 +508,11 @@ public class FrmChatVistaTrabajador extends javax.swing.JFrame {
      * @param evt Evento al que se escucha.
      */
     private void btnEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadoActionPerformed
-        cambiarEstado();
+        try {
+            cambiarEstado();
+        } catch (ObjetosNegocioException ex) {
+            Logger.getLogger(FrmChatVistaTrabajador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEstadoActionPerformed
 
     /**

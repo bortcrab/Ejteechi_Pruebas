@@ -8,6 +8,7 @@ import dtos.DatosRutaDTO;
 import utilidades.JXMapViewerCustom;
 import dtos.MapaDTO;
 import dtos.RutaDTO;
+import interfaces.IMapaDAO;
 import java.util.List;
 
 /**
@@ -25,8 +26,8 @@ public class FacadeMostrarMapa implements IMostrarMapa {
     /**
      * Constructor que inicializa el atributo de la clase.
      */
-    public FacadeMostrarMapa() {
-        ctrlMostrarMapa = new CtrlMostrarMapa();
+    public FacadeMostrarMapa(CtrlMostrarMapa ctrlMostrarMapa) {
+        this.ctrlMostrarMapa = ctrlMostrarMapa;
     }
 
     /**
