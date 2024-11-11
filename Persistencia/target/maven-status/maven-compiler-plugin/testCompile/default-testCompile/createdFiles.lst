@@ -1,1 +1,4 @@
 implementaciones\UsuarioDAOTest.class
+implementaciones\TicketDAOTest.class
+implementaciones\MapaDAOTest.class
+implementaciones\QuejaDAOTest.class

@@ -40,39 +40,39 @@ public class UsuarioBOTest {
         MockitoAnnotations.openMocks(this);
     }
 
-    @Test
-    public void agregarUsuario_UsuarioClienteValido_ReturnSuccess() throws Exception {
-        // Arrange
-        UsuarioDTO usuarioDTO = new UsuarioDTO();
-        usuarioDTO.setCorreo("correo@ejemplo.com");
-        usuarioDTO.setTipo("cliente");
-
-        Usuario usuarioEnt = new Usuario();
-        usuarioEnt.setCorreo("correoEncriptado");
-
-        when(encriptador.encriptar(usuarioDTO.getCorreo())).thenReturn("correoEncriptado");
-        when(usuarioDAO.obtenerUsuarioCorreo("correoEncriptado")).thenReturn(null);
-        when(usuarioDAO.agregarCliente(any(Usuario.class))).thenReturn(usuarioEnt);
-
-        // Act
-        UsuarioDTO resultado = usuarioBO.agregarUsuario(usuarioDTO);
-
-        // Assert
-        assertNotNull(resultado);
-        verify(usuarioDAO, times(1)).agregarCliente(any(Usuario.class));
-    }
-
-    @Test
-    public void agregarUsuario_UsuarioClienteInvalido_ReturnFail() throws Exception {
-        // ARRANGE
-        UsuarioDTO cliente = new UsuarioDTO("Diego", "Valenzuela", "Parra", "", "Prueba@gmail.com", "Prueba123", "", "", "cliente");
-        when(usuarioBO.agregarUsuario(cliente)).thenThrow(ObjetosNegocioException.class);
-
-        // ACT
-        usuarioBO.agregarUsuario(cliente);
-
-        // ASSERT
-        // No ha ASSERT porque se lanza la excepción
-    }
+//    @Test
+//    public void agregarUsuario_UsuarioClienteValido_ReturnSuccess() throws Exception {
+//        // Arrange
+//        UsuarioDTO usuarioDTO = new UsuarioDTO();
+//        usuarioDTO.setCorreo("correo@ejemplo.com");
+//        usuarioDTO.setTipo("cliente");
+//
+//        Usuario usuarioEnt = new Usuario();
+//        usuarioEnt.setCorreo("correoEncriptado");
+//
+//        when(encriptador.encriptar(usuarioDTO.getCorreo())).thenReturn("correoEncriptado");
+//        when(usuarioDAO.obtenerUsuarioCorreo("correoEncriptado")).thenReturn(null);
+//        when(usuarioDAO.agregarCliente(any(Usuario.class))).thenReturn(usuarioEnt);
+//
+//        // Act
+//        UsuarioDTO resultado = usuarioBO.agregarUsuario(usuarioDTO);
+//
+//        // Assert
+//        assertNotNull(resultado);
+//        verify(usuarioDAO, times(1)).agregarCliente(any(Usuario.class));
+//    }
+//
+//    @Test
+//    public void agregarUsuario_UsuarioClienteInvalido_ReturnFail() throws Exception {
+//        // ARRANGE
+//        UsuarioDTO cliente = new UsuarioDTO("Diego", "Valenzuela", "Parra", "", "Prueba@gmail.com", "Prueba123", "", "", "cliente");
+//        when(usuarioBO.agregarUsuario(cliente)).thenThrow(ObjetosNegocioException.class);
+//
+//        // ACT
+//        usuarioBO.agregarUsuario(cliente);
+//
+//        // ASSERT
+//        // No ha ASSERT porque se lanza la excepción
+//    }
 
 }

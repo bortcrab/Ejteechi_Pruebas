@@ -108,5 +108,35 @@ public class QuejaDAO implements IQuejaDAO {
         }
         return queja;
     }
+    
+    public Queja buscarQuejaPorId(Queja aux) throws PersistenciaException {
+        try {
+            // Realiza la búsqueda de la queja por su ID
+            Queja queja = coleccion.find(eq("_id", aux.getId())).first();
+            
+            if (queja == null) {
+                logger.log(Level.INFO, "No se encontró una queja con el ID proporcionado: " + aux.getId().toHexString());
+            } else {
+                logger.log(Level.INFO, "Se encontró una queja con el ID: " + aux.getId().toHexString());
+            }
+            
+            return queja;
+        } catch (Exception ex) {
+            logger.log(Level.SEVERE, "Error al buscar la queja por ID", ex);
+            throw new PersistenciaException(ex.getMessage());
+        }
+    }
+    
+    public void borrarQuejas() {
+        // Creamos la conexión con el servidor.
+        MongoDatabase db = conexion.crearConexion();
+        // Obtenemos la colección de usuarios.
+        coleccion = db.getCollection("quejas", Queja.class);
+        
+        Long eliminados = coleccion.deleteMany(new Document()).getDeletedCount();
+        
+        logger.log(Level.INFO, "Se han eliminado " + eliminados +" registros de la colección 'quejas'.");
+        conexion.cerrarConexion(); // Cerramos la conexión.
+    }
 
 }

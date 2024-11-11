@@ -26,6 +26,24 @@ public class QuejaDTO {
     public QuejaDTO() {
     }
 
+    public QuejaDTO(String tipoQueja) {
+        this.tipoQueja = tipoQueja;
+    }
+    
+    
+
+    public QuejaDTO(ObjectId noQueja, String tipoQueja, Date fecha, String descripcion, boolean anonimo, boolean leido, ObjectId idCliente) {
+        this.noQueja = noQueja;
+        this.tipoQueja = tipoQueja;
+        this.fecha = fecha;
+        this.descripcion = descripcion;
+        this.anonimo = anonimo;
+        this.leido = leido;
+        this.idCliente = idCliente;
+    }
+    
+    
+
     /**
      * Constructor de la clase QuejaDTO que inicializa los atributos con los
      * valores proporcionados.

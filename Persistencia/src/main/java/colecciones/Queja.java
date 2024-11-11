@@ -15,7 +15,26 @@ public class Queja {
     public Queja() {
     }
 
+    public Queja(ObjectId _id) {
+        this._id = _id;
+    }
     
+    public Queja(ObjectId id, String tipo, Date fecha, String comentario, boolean anonimo, boolean leido, ObjectId idCliente) {
+        this._id = id;
+        this.tipo = tipo;
+        this.fecha = fecha;
+        this.comentario = comentario;
+        this.anonimo = anonimo;
+        this.leido = leido;
+        this.idCliente = idCliente;
+    }
+
+    public Queja(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    
+
     public ObjectId getId() {
         return _id;
     }
@@ -72,5 +91,11 @@ public class Queja {
         this.idCliente = idCliente;
     }
 
+    @Override
+    public String toString() {
+        return "Queja{" + "_id=" + _id + ", tipo=" + tipo + ", fecha=" + fecha + ", comentario=" + comentario + ", anonimo=" + anonimo + ", leido=" + leido + ", idCliente=" + idCliente + '}';
+    }
+
+    
    
 }

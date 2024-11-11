@@ -43,7 +43,7 @@ public class Encriptador {
      * @return El valor desencriptado.
      * @throws Exception si sucede algún imprevisto.
      */
-    public String desencriptar(String valor) {
+    public String desencriptar(String valor) throws Exception {
         try {
             SecretKeySpec llave = generarLlave();
             Cipher cipher = Cipher.getInstance(ALGORITMO);
@@ -52,7 +52,7 @@ public class Encriptador {
             byte[] valorByteDesencriptado = cipher.doFinal(valor64Desencriptado);
             return new String(valorByteDesencriptado, "utf-8");
         } catch (Exception e) {
-            return null;
+            throw new Exception("La clave a desencriptar es invalida");
         }
     }
 
@@ -64,4 +64,6 @@ public class Encriptador {
     private static SecretKeySpec generarLlave() {
         return new SecretKeySpec(LLAVE.getBytes(), ALGORITMO);
     }
+    
+    
 }
