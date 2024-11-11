@@ -11,9 +11,9 @@ Contraseña: admin
 Recomendamos compilar todos los proyectos que conforman el programa en caso de que ocurran errores de dependencias. El orden de compilación es el siguiente:
 1. Persistencia
 2. DTOs
-3. ObtenerImagenesMapa
-4. ObjetosNegocio
-5. Todos los subsistemas (MostrarMapa, IniciarSesion, CrearCuentaCliente, AdministrarQuejas, AdministrarTickets, etc)
+3. ObjetosNegocio
+4. ObtenerImagenesMapa
+5. Todos los subsistemas (AdministrarQuejas, AdministrarTickets, AtenderTickets, IniciarSesion, MostrarMapa, ProgramarMantenimiento, RegistrarCliente, RegistrarEmpleado, VisualizarQuejas).
 6. Presentación.
 
 ### **Solución por remoción de dependencias**
