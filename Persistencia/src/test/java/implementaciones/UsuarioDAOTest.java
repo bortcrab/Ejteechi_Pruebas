@@ -307,6 +307,7 @@ public class UsuarioDAOTest {
 
     @Test
     public void obtenerEmpleadoCurp_CurpInexistente_ReturnSuccess() throws Exception {
+        // ARRANGE
         String curp = "JKFV040112HSRLR1W4";
         Usuario resultado;
 
@@ -335,6 +336,7 @@ public class UsuarioDAOTest {
 
     @Test
     public void obtenerEmpleadoRfc_RfcInexistente_ReturnSuccess() throws Exception {
+        // ARRANGE
         String rfc = "VAPD040603TQ1";
         Usuario resultado;
 

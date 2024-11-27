@@ -21,8 +21,11 @@ public class EncriptadorTest {
         // CP01: Encriptar cadena alfanumérica válida
         //Arrange
         String entrada = "Hola123";
+        String resultado;
+        
         //Act
-        String resultado = encriptador.encriptar(entrada);
+        resultado = encriptador.encriptar(entrada);
+        
         //Assert
         assertNotNull("La cadena encriptada no debe ser null", resultado);
         assertNotEquals("La cadena encriptada no debe ser igual a la original", entrada, resultado);
@@ -33,9 +36,12 @@ public class EncriptadorTest {
         // CP02: Desencriptar cadena previamente encriptada
         //ARRANGE
         String entrada = "Hola123";
-        //ACT
         String encriptado = encriptador.encriptar(entrada);
-        String desencriptado = encriptador.desencriptar(encriptado);
+        String desencriptado;
+        
+        //ACT
+        desencriptado = encriptador.desencriptar(encriptado);
+        
         //ASSERT
         assertEquals(entrada, desencriptado);
     }
@@ -45,8 +51,11 @@ public class EncriptadorTest {
         // CP03: Encriptar cadena vacía
         //ARRANGE
         String entrada = "";
+        String resultado;
+        
         //ACT
-        String resultado = encriptador.encriptar(entrada);
+        resultado = encriptador.encriptar(entrada);
+        
         //ASSERT
         assertNotNull("La cadena encriptada no debe ser null", resultado);
     }
@@ -73,9 +82,13 @@ public class EncriptadorTest {
         // CP08: Ciclo completo de encriptación-desencriptación
         //ARRANGE
         String entrada = "TestCompleto123!@#";
+        String encriptado;
+        String desencriptado;
+        
         //ACT
-        String encriptado = encriptador.encriptar(entrada);
-        String desencriptado = encriptador.desencriptar(encriptado);
+        encriptado = encriptador.encriptar(entrada);
+        desencriptado = encriptador.desencriptar(encriptado);
+        
         //ASSERT
         assertNotNull( encriptado);
         assertNotEquals( entrada, encriptado);

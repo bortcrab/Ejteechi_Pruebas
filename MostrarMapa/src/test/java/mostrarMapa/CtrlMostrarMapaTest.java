@@ -49,14 +49,18 @@ public class CtrlMostrarMapaTest {
         // ARRANGE
         MapaDTO mapa = ctrl.cargarMapa(new JXMapViewerCustom());
         RutaDTO ruta = mapa.getLineas().getFirst().getRuta();
+        Long inicio;
+        Long fin;
+        Long tiempoTotal;
+        Double tiempoEnSegundos;
 
         // ACT
-        long inicio = System.nanoTime();
+        inicio = System.nanoTime();
         ctrl.cargarRuta(ruta);
-        long fin = System.nanoTime();
+        fin = System.nanoTime();
 
-        long tiempoTotal = Math.abs(inicio - fin);
-        double tiempoEnSegundos = tiempoTotal / 1_000_000_000.0;
+        tiempoTotal = Math.abs(inicio - fin);
+        tiempoEnSegundos = tiempoTotal / 1_000_000_000.0;
         System.out.println("Tiempo en segundos: " + tiempoEnSegundos);
 
         // ASSERT
@@ -69,14 +73,18 @@ public class CtrlMostrarMapaTest {
         MapaDTO mapa = ctrl.cargarMapa(new JXMapViewerCustom());
         RutaDTO ruta = mapa.getLineas().getFirst().getRuta();
         ctrl.cargarRuta(ruta);
+        Long inicio;
+        Long fin;
+        Long tiempoTotal;
+        Double tiempoEnSegundos;
 
         // ACT
-        long inicio = System.nanoTime();
+        inicio = System.nanoTime();
         ctrl.cargarRuta(ruta);
-        long fin = System.nanoTime();
+        fin = System.nanoTime();
 
-        long tiempoTotal = Math.abs(inicio - fin);
-        double tiempoEnSegundos = tiempoTotal / 1_000_000_000.0;
+        tiempoTotal = Math.abs(inicio - fin);
+        tiempoEnSegundos = tiempoTotal / 1_000_000_000.0;
         System.out.println("Tiempo en segundos: " + tiempoEnSegundos);
 
         // ASSERT

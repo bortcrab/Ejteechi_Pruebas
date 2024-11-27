@@ -47,10 +47,14 @@ public class CamionDAOTest {
      */
     @Test
     public void testObtener_PorNumeroUnidad_ReturnSuccess() throws PersistenciaException {
+        // ASSERT
         String numeroUnidadABuscar = "001";
+        Camion resultado;
         
-        Camion resultado = camionDAO.obtenerPorNumUnidadCamion(numeroUnidadABuscar);
+        // ACT
+        resultado = camionDAO.obtenerPorNumUnidadCamion(numeroUnidadABuscar);
         
+        // ASSERT
         assertEquals("001", resultado.getNumeroUnidad());
     }
     @Test
@@ -75,9 +79,10 @@ public class CamionDAOTest {
         String estadoLimpieza = camion.getEstadoLimpieza();
         String estadoLlantas = camion.getEstadoLlantas(); 
         String estadoLuces = camion.getEstadoLuces();
+        Camion camionResultado;
         
         //Act
-        Camion camionResultado = camionDAO.actualizarEstado("001", "Medio", "Malo", "Malo", "Bueno");
+        camionResultado = camionDAO.actualizarEstado("001", "Medio", "Malo", "Malo", "Bueno");
         
         //Assert
         assertNotEquals(estadoMotor, camionResultado.getEstadoMotor());
@@ -92,9 +97,10 @@ public class CamionDAOTest {
         Camion camion = camionDAO.obtenerPorNumeroUnidad("002");
         String estadoOriginalMotor = camion.getEstadoMotor();
         String estadoACambiar = "Bueno";
+        Camion camionResultado;
         
         //Act
-        Camion camionResultado =  camionDAO.actualizarEstado("002", estadoACambiar, null, null, null);
+        camionResultado =  camionDAO.actualizarEstado("002", estadoACambiar, null, null, null);
         
         //Assert
         assertNotEquals(estadoOriginalMotor, camionResultado.getEstadoMotor());
@@ -107,9 +113,10 @@ public class CamionDAOTest {
         String estadoOriginalLimpieza = camion.getEstadoLimpieza();
         String estadoLlantas = camion.getEstadoLlantas();
         String estadoACambiar = "Medio";
+        Camion camionResultado;
         
         //Act
-        Camion camionResultado = camionDAO.actualizarEstado("003", null, estadoACambiar, null, null);
+        camionResultado = camionDAO.actualizarEstado("003", null, estadoACambiar, null, null);
         
         //Assert
         assertNotEquals(estadoOriginalLimpieza, camionResultado.getEstadoLimpieza());
@@ -123,9 +130,10 @@ public class CamionDAOTest {
         String estadoOriginalLlantas = camion.getEstadoLlantas();
         String estadoMotor = camion.getEstadoMotor();
         String estadoACambiar = "Malo";
+        Camion camionResultado;
         
         //Act
-        Camion camionResultado = camionDAO.actualizarEstado("004", null, null, estadoACambiar, null);
+        camionResultado = camionDAO.actualizarEstado("004", null, null, estadoACambiar, null);
         
         //Assert
         assertNotEquals(estadoOriginalLlantas, camionResultado.getEstadoLlantas());
@@ -138,10 +146,11 @@ public class CamionDAOTest {
         String estadoOriginalLuces = camion.getEstadoLuces();
         String estadoLimpieza = camion.getEstadoLimpieza();
         String estadoACambiar = "Malo";
+        Camion camionResultado;
         
         //Act
         camionDAO.actualizarEstado("005", null, null, null, estadoACambiar);
-        Camion camionResultado = camionDAO.obtenerPorNumeroUnidad("005");
+        camionResultado = camionDAO.obtenerPorNumeroUnidad("005");
         
         //Assert
         assertNotEquals(estadoOriginalLuces, camionResultado.getEstadoLuces());
@@ -153,34 +162,46 @@ public class CamionDAOTest {
      */
     @Test
     public void testActualizar_Prioridad_Y_FechaMantenimientoAmbos_ReturnSuccess() throws PersistenciaException {
+        // ARRANGE
         Camion camion = camionDAO.obtenerPorNumeroUnidad("007");
         String nivelPrioridadOriginal = camion.getNivelPrioridad();
         Date fechaOriginal = camion.getFechaUltimoMantenimiento();
+        Camion resultado;
         
-        Camion resultado = camionDAO.actualizarPrioridadYFechaMantenimiento("007", "Bajo", new Date());
+        // ACT
+        resultado = camionDAO.actualizarPrioridadYFechaMantenimiento("007", "Bajo", new Date());
         
+        // ASSERT
         assertNotEquals(resultado.getNivelPrioridad(), nivelPrioridadOriginal);
         assertNotEquals(fechaOriginal.getTime(), resultado.getFechaUltimoMantenimiento().getTime());
     }
     @Test
     public void testActualizar_Prioridad_ReturnSuccess() throws PersistenciaException {
+        // ARRANGE
         Camion camion = camionDAO.obtenerPorNumeroUnidad("008");
         String nivelPrioridadOriginal = camion.getNivelPrioridad();
         Date fechaOriginal = camion.getFechaUltimoMantenimiento();
+        Camion resultado;
         
-        Camion resultado = camionDAO.actualizarPrioridadYFechaMantenimiento("008", "Bueno", null);
+        // ACT
+        resultado = camionDAO.actualizarPrioridadYFechaMantenimiento("008", "Bueno", null);
         
+        // ASSERT
         assertNotEquals(resultado.getNivelPrioridad(), nivelPrioridadOriginal);
         assertEquals(fechaOriginal.getTime(), resultado.getFechaUltimoMantenimiento().getTime());
     }
     @Test
     public void testActualizar_UltimoMantenimiento_ReturnSuccess() throws PersistenciaException {
+        // ARRANE
         Camion camion = camionDAO.obtenerPorNumeroUnidad("009");
         String nivelPrioridadOriginal = camion.getNivelPrioridad();
         Date fechaOriginal = camion.getFechaUltimoMantenimiento();
+        Camion resultado;
         
-        Camion resultado = camionDAO.actualizarPrioridadYFechaMantenimiento("009", null, new Date());
+        // ACT
+        resultado = camionDAO.actualizarPrioridadYFechaMantenimiento("009", null, new Date());
         
+        // ACT
         assertEquals(resultado.getNivelPrioridad(), nivelPrioridadOriginal);
         assertNotEquals(fechaOriginal.getTime(), resultado.getFechaUltimoMantenimiento().getTime());
     }

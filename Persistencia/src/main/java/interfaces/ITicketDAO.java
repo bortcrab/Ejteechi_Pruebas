@@ -34,6 +34,7 @@ public interface ITicketDAO {
      *
      * @param folio Folio del ticket a buscar.
      * @return El ticket encontrado.
+     * @throws excepciones.PersistenciaException
      */
     public Ticket obtenerTicket(ObjectId folio) throws PersistenciaException;
 

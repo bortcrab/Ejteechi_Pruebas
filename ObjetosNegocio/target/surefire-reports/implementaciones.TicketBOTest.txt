@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: implementaciones.TicketBOTest
--------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.834 s -- in implementaciones.TicketBOTest

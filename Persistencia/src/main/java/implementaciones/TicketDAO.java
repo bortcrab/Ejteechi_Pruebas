@@ -102,6 +102,7 @@ public class TicketDAO implements ITicketDAO {
      *
      * @param folio Folio del ticket a buscar.
      * @return El ticket encontrado.
+     * @throws excepciones.PersistenciaException
      */
     @Override
     public Ticket obtenerTicket(ObjectId folio) throws PersistenciaException {
